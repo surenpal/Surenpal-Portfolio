@@ -1,6 +1,7 @@
 import ProjectCard from "./ProjectCard";
 import weatherImg from "../assets/weather-app.png";
 import dateTimeImg from "../assets/date-time-app.png";
+import ecommerceImg from "../assets/e-commerce.png";
 import loginImg from "../assets/login-page.png";
 import myCalculaterImg from "../assets/my-calculater.png";
 
@@ -15,13 +16,13 @@ export default function Project() {
       </h2>
 
       
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-20">
         
         <ProjectCard
-          imgSrc={e-commerce}
+          imgSrc={ecommerceImg}
           title="E-Commerce-App"
           description="A clean e-commerce app built with React and Tailwind and the useContext."
-          url="https://e-commerceappsuren.vercel.app/"
+          url="https://e-commerce-audio-shop.vercel.app"
         />
         
         <ProjectCard
