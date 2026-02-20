@@ -14,7 +14,16 @@ export default function Project() {
         Projects
       </h2>
 
+      
       <div className="flex flex-wrap justify-center gap-6">
+        
+        <ProjectCard
+          imgSrc={e-commerce}
+          title="E-Commerce-App"
+          description="A clean e-commerce app built with React and Tailwind and the useContext."
+          url="https://e-commerceappsuren.vercel.app/"
+        />
+        
         <ProjectCard
           imgSrc={weatherImg}
           title="Weather-App"

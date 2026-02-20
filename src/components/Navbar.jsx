@@ -2,7 +2,7 @@ export default function Navbar() {
   return (
     <nav className="w-full h-16 bg-gray-50 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
-        <h1 className="text-2xl font-extrabold text-pink-800 text-shadow-md">
+        <h1 className="text-2xl font-extrabold text-pink-600 text-shadow-md">
           Suren
         </h1>
 
