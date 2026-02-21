@@ -18,7 +18,9 @@ export default function Hero() {
       </div>
 
       <div className="flex-1 flex justify-end">
-        <div className="w-64 h-64 mx-auto bg-pink-400 rounded-2xl shadow-lg"></div>
+        <div className="w-70 h-70 mx-auto bg-pink-400 rounded-3xl shadow-lg overflow-hidden">
+          <img src="/src/assets/Profile.webp" alt="Profile.webp" className="w-full h-full object-cover rounded-2xl" />
+        </div>
       </div>
     </section>
   );
