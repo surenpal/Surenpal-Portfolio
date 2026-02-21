@@ -2,8 +2,8 @@ export default function Navbar() {
   return (
     <nav className="w-full h-16 bg-gray-50 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
-        <h1 className="text-2xl font-extrabold text-pink-600 text-shadow-md">
-          Suren
+        <h1 className="text-3xl font-extrabold text-pink-600 text-shadow-md">
+          SP
         </h1>
 
         <div className="space-x-8 text-pink-700 font-medium">
