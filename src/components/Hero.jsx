@@ -1,26 +1,21 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center px-6 bg-gray-50">
-      <div className="flex-1 text left pl-10">
-        <h1 className="text-5xl font-extrabold mb-4 text-green-600">
+    <section className=" relative min-h-screen flex flex-col md:flex-row items-center px-6 bg-[url('/src/assets/bg-image3.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 bg-white/40"></div>
+      <div className="relative flex-1 flex flex-col items-center mt-30 md:items-start text-center md:text-left pl-10">
+        <h1 className="text-5xl font-extrabold mb-4 text-black-600 text-shadow-md">
           Hi, I'm Suren Pal
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-black-600 mb-8">
           Good Learner • React Developer • Full Stack Developer
         </p>
 
         <a
           href="#projects"
-          className="px-8 py-3 bg-pink-400 text-white rounded-lg shadow-lg hover:bg-pink-600 hover:shadow-xl transition-all duration-300"
+          className="px-8 py-3 bg-slate-600 text-blue-200 rounded-lg shadow-lg hover:bg-slate-700 hover:shadow-xl transition-all duration-300"
         >
           Upcoming Projects
         </a>
-      </div>
-
-      <div className="flex-1 flex justify-end">
-        <div className="w-70 h-70 mx-auto bg-pink-400 rounded-3xl shadow-lg overflow-hidden">
-          <img src="/src/assets/Profile.webp" alt="Profile.webp" className="w-full h-full object-cover rounded-2xl" />
-        </div>
       </div>
     </section>
   );
