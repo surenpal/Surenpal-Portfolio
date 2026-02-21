@@ -2,9 +2,11 @@ export default function Navbar() {
   return (
     <nav className="w-full h-20 bg-black-600 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
-        <h1 className="text-3xl font-extrabold text-shadow-md">
+        <a
+          href="#Hero"
+          className="text-3xl font-extrabold cursor-pointer">
           SP
-        </h1>
+        </a>
 
         <div className="space-x-8 text-gray-900 font-bold">
           <a href="#about" className="hover:text-gray-600 transition-colors">About</a>
