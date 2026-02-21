@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-50">
-      <div className="flex-1 text left">
+    <section className="min-h-screen flex items-center px-6 bg-gray-50">
+      <div className="flex-1 text left pl-10">
         <h1 className="text-5xl font-extrabold mb-4 text-green-600">
           Hi, I'm Suren Pal
         </h1>
@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       <div className="flex-1 flex justify-end">
-        <div className="w-32 h-32 mx-auto bg-pink-400 rounded-2xl shadow-lg"></div>
+        <div className="w-64 h-64 mx-auto bg-pink-400 rounded-2xl shadow-lg"></div>
       </div>
     </section>
   );
