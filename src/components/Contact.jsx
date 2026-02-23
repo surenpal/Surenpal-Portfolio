@@ -1,6 +1,8 @@
+export default function Contact() {
+  return (
 <section
   id="contact"
-  className="relative w-full py-24 px-6 text-center bg-[url('/bg-contact.jpg')] bg-cover bg-center"
+  className="relative w-full py-24 px-6 text-center bg-[url('/your-image.jpg')] bg-cover bg-center"
 >
   <div className="absolute inset-0 bg-black/40"></div>
 
@@ -21,3 +23,6 @@
     </a>
   </div>
 </section>
+
+  );
+}
