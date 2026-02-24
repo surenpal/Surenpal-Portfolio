@@ -7,7 +7,7 @@ export default function Contact() {
   <div className="absolute inset-0 bg-black/50"></div>
 
   <div className="relative z-10">
-    <h2 className="text-4xl font-extrabold text-green-400 mb-6">
+    <h2 className="text-4xl font-extrabold text-gray-400 mb-6">
       Contact
     </h2>
 

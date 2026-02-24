@@ -16,7 +16,7 @@ export default function Project() {
 
       <div className="relative z-10">
 
-        <h2 className="text-4xl font-extrabold text-green-600 mb-10 text-shadow-md">
+        <h2 className="text-4xl font-extrabold text-gray-400 mb-10 text-shadow-md">
           Projects
         </h2>
 
