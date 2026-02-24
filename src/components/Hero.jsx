@@ -1,9 +1,8 @@
 export default function Hero() {
   return (
-    <section id="Hero" className="min-h-screen flex flex-col md:flex-row items-center px-6 pb-16">
-      <div className="absolute inset-0 bg-black/50"></div>
+    <section id="Hero" className="min-h-screen flex flex-col items-center justify-center px-6 pb-16 relative">      <div className="absolute inset-0 bg-black/50"></div>
 
-      <div className="relative flex-1 flex flex-col items-center mt-30 md:items-start text-center md:text-left pl-10">
+      <div className="relative flex flex-col items-center text-center max-w-3xl mx-auto">
         <h1 className="text-6xl font-extrabold mb-4 text-gray-300 text-shadow-md">
           Hi, I'm Suren Pal
         </h1>

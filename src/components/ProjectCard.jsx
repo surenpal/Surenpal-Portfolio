@@ -1,6 +1,6 @@
 export default function ProjectCard({ title, description, url, imgSrc }) {
   return (
-    <div className="w-64 bg-gray-800 rounded-xl overflow-hidden shadow-md">
+    <div className="w-64 bg-gray-900 rounded-xl overflow-hidden shadow-md">
       <div className="overflow-hidden">
         <img
           src={imgSrc}
@@ -8,7 +8,7 @@ export default function ProjectCard({ title, description, url, imgSrc }) {
         />
       </div>
 
-      <div className="p-4 text-center bg-gray-800">
+      <div className="p-4 text-center bg-gray-900">
         <h2 className="text-lg font-semibold text-gray-300">{title}</h2>
 
         <p className="text-sm text-gray-400 mt-2">
