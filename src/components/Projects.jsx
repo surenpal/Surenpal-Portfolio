@@ -9,9 +9,9 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className=" relative w-full py-24 px-6 text-center bg-[url(/bg-all.jpg)] bg-cover bg-center bg-no-repeat"
+      className=" relative w-full py-24 px-6 text-center"
     >
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
 
       <div className="relative z-10">
