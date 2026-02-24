@@ -4,15 +4,15 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
         <a
           href="#Hero"
-          className="text-3xl font-extrabold cursor-pointer">
-          SP
+          className="text-gray-400 text-4xl font-extrabold cursor-pointer">
+          SJ
         </a>
 
-        <div className="space-x-8 text-gray-900 font-bold">
-          <a href="#about" className="hover:text-gray-600 transition-colors">About</a>
-          <a href="#skills" className="hover:text-gray-600 transition-colors">Skills</a>
-          <a href="#projects" className="hover:text-gray-600 transition-colors">Projects</a>
-          <a href="#contact" className="hover:text-gray-600 transition-colors">Contact</a>
+        <div className="space-x-8 text-gray-300 font-bold">
+          <a href="#about" className="hover:text-gray-100 transition-colors">About</a>
+          <a href="#skills" className="hover:text-gray-100 transition-colors">Skills</a>
+          <a href="#projects" className="hover:text-gray-100 transition-colors">Projects</a>
+          <a href="#contact" className="hover:text-gray-100 transition-colors">Contact</a>
         </div>
       </div>
     </nav>
