@@ -4,7 +4,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
         <a
           href="#Hero"
-          className="text-gray-400 text-4xl font-extrabold cursor-pointer">
+          className="text-white text-4xl font-extrabold cursor-pointer">
           SJ
         </a>
 
