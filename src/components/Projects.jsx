@@ -11,7 +11,7 @@ export default function Project() {
       id="projects"
       className=" relative w-full py-24 px-6 text-center bg-[url(/bmg.jpg)] bg-cover bg-center bg-no-repeat"
     >
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
 
       <div className="relative z-10">

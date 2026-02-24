@@ -6,7 +6,7 @@ export default function About() {
       id="about"
       className=" relative w-full py-24 px-6 text-center bg-[url('/bmg.jpg')] bg-cover bg-center bg-no-repeat"
     >
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
        <div className=" relative p-8 rounded-2xl inline-block max-w-3xl mx-auto">
         <h2 className="text-4xl font-extrabold text-gray-400 mb-6">
