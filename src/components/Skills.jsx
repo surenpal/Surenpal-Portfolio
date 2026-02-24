@@ -2,9 +2,9 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full py-24 px-6 text-center bg-[url(/bg-contact.jpg)] bg-cover bg-center bg-no-repeat"
+      className="relative w-full py-24 px-6 text-center bg-[url(/bmg.jpg)] bg-cover bg-center bg-no-repeat"
     >
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative z-10">
 
         <h2 className="text-4xl font-extrabold text-green-600 mb-8 text-shadow-md">

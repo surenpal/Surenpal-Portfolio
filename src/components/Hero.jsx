@@ -1,12 +1,12 @@
 export default function Hero() {
   return (
-    <section id="Hero" className=" relative min-h-screen flex flex-col md:flex-row items-center px-6 pb-16 bg-[url('/public/bg-image3.jpg')] bg-cover bg-center bg-no-repeat">
+    <section id="Hero" className=" relative min-h-screen flex flex-col md:flex-row items-center px-6 pb-16 bg-[url('/public/bmg.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative flex-1 flex flex-col items-center mt-30 md:items-start text-center md:text-left pl-10">
-        <h1 className="text-5xl font-extrabold mb-4 text-black-600 text-shadow-md">
+        <h1 className="text-5xl font-extrabold mb-4 text-gray-100 text-shadow-md">
           Hi, I'm Suren Pal
         </h1>
-        <p className="text-lg text-black-600 mb-8">
+        <p className="text-lg text-gray-300 mb-8">
           Good Learner • React Developer • Full Stack Developer
         </p>
 
