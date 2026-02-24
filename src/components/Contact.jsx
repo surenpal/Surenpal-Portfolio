@@ -17,7 +17,7 @@ export default function Contact() {
 
     <a
       href="mailto:example@email.com"
-      className="px-8 py-3 bg-pink-600 text-white rounded-lg shadow-lg hover:bg-pink-700 hover:shadow-xl transition-all duration-300"
+      className="px-8 py-3 bg-gray-800 text-white rounded-lg shadow-lg hover:bg-gray-700 hover:shadow-xl transition-all duration-300"
     >
       Email Me
     </a>

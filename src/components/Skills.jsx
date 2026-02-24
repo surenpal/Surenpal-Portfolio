@@ -12,16 +12,16 @@ export default function Skills() {
       </h2>
 
       <div className="flex flex-wrap justify-center gap-4">
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">React</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">Tailwind</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">JavaScript</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">Server</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">MongoDB</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">JAVA</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">HTML</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">CSS</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">GitHub</span>
-        <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">Python</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">React</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">Tailwind</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">JavaScript</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">Server</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">MongoDB</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">JAVA</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">HTML</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">CSS</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">GitHub</span>
+        <span className="px-5 py-2 bg-gray-800 shadow-md rounded-lg text-gray-200 font-medium hover:text-gray-300">Python</span>
       </div>
  
 
