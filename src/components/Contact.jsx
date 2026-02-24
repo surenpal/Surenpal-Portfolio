@@ -2,7 +2,7 @@ export default function Contact() {
   return (
 <section
   id="contact"
-  className="relative w-full py-24 px-6 text-center bg-[url('/bmg.jpg')] bg-cover bg-center bg-absolute"
+  className="relative w-full py-24 px-6 text-center bg-[url('/bg-all.jpg')] bg-cover bg-center bg-absolute"
 >
   <div className="absolute inset-0 bg-black/60"></div>
 

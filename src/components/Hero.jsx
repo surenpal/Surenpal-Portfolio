@@ -1,9 +1,10 @@
 export default function Hero() {
   return (
-    <section id="Hero" className=" relative min-h-screen flex flex-col md:flex-row items-center px-6 pb-16 bg-[url('/public/bmg.jpg')] bg-cover bg-center bg-no-repeat">
-      <div className="absolute inset-0 bg-black/60"></div>
+    <section id="Hero" className="min-h-screen flex flex-col md:flex-row items-center px-6 pb-16">
+      <div className="absolute inset-0 bg-black/50"></div>
+
       <div className="relative flex-1 flex flex-col items-center mt-30 md:items-start text-center md:text-left pl-10">
-        <h1 className="text-5xl font-extrabold mb-4 text-gray-300 text-shadow-md">
+        <h1 className="text-6xl font-extrabold mb-4 text-gray-300 text-shadow-md">
           Hi, I'm Suren Pal
         </h1>
         <p className="text-lg text-gray-400 mb-8">
@@ -14,7 +15,7 @@ export default function Hero() {
           href="#projects"
           className="px-8 py-3 bg-slate-600 text-blue-200 rounded-lg shadow-lg hover:bg-slate-700 hover:shadow-xl transition-all duration-300"
         >
-          Upcoming Projects
+          View My Projects
         </a>
       </div>
     </section>
