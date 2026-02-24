@@ -4,11 +4,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className=" relative w-full py-24 px-6 text-center bg-[url('/bg-img-all.jpg')] bg-cover bg-center bg-no-repeat"
+      className=" relative w-full py-24 px-6 text-center bg-[url('/bg-contact.jpg')] bg-cover bg-center bg-no-repeat"
     >
-      <div className="absolute inset-0 bg-white/60"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
 
-       <div className="bg-white/0 backdrop-blur-sm p-8 rounded-2xl inline-block max-w-3xl mx-auto border-none">
+       <div className=" relative p-8 rounded-2xl inline-block max-w-3xl mx-auto">
         <h2 className="text-4xl font-extrabold text-green-600 mb-6">
           About Me
         </h2>

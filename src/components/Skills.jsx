@@ -2,9 +2,12 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="w-full py-24 px-6 text-center bg-gray-50"
+      className="relative w-full py-24 px-6 text-center bg-[url(/bg-contact.jpg)] bg-cover bg-center bg-no-repeat"
     >
-      <h2 className="text-4xl font-extrabold text-green-600 mb-8 text-shadow-md">
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="relative z-10">
+
+        <h2 className="text-4xl font-extrabold text-green-600 mb-8 text-shadow-md">
         Skills
       </h2>
 
@@ -20,6 +23,9 @@ export default function Skills() {
         <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">GitHub</span>
         <span className="px-5 py-2 bg-white shadow-md rounded-lg text-pink-400 font-medium">Python</span>
       </div>
-    </section>
+ 
+
+      </div>
+         </section>
   );
 }
