@@ -1,8 +1,14 @@
 module.exports = {
+
+  darkMode: "class",
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+
   theme: {
     extend: {
       fontFamily: {
-        darkMode: ['class'],
         inter: ['Inter', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
@@ -38,4 +44,5 @@ module.exports = {
       },
     },
   },
+  plugins: [],
 };
