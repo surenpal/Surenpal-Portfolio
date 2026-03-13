@@ -2,7 +2,9 @@ export default function Contact() {
   return (
 <section
   id="contact"
-  className="relative w-full py-24 px-6 text-center "
+  className="min-h-screen flex flex-col items-center justify-center px-6 pb-16 p-10 
+      bg-white dark:bg-gray-900 
+      text-gray-900 dark:text-white "
 >
   <div className="absolute inset-0 bg-black/50"></div>
 
