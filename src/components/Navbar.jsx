@@ -1,6 +1,16 @@
-export default function Navbar() {
+export default function Navbar({theme, setTheme}) {
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    }
+    else {
+      setTheme("light");
+    }
+  }
+
   return (
-    <nav className="w-full h-20 bg-black-600 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
+    <nav className="w-full h-20 p-4 bg-white dark:bg-gray-800 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
         <a
           href="#Hero"
