@@ -7,10 +7,14 @@ import Contact from "./components/Contact";
 
 export default function App() {
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+});
 
   useEffect(() => 
   {
+    localStorage.setItem("theme", theme);
+
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     }
