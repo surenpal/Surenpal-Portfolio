@@ -11,23 +11,21 @@ export default function App() {
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
-});
+  });
 
-  useEffect(() => 
-  {
+  useEffect(() => {
     localStorage.setItem("theme", theme);
 
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     }
-    else{
+    else {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
 
   return (
-    <div className="bg-gray-400 text-gray-900 min-h-screen bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/bg-all.jpg')]">
-      <Navbar theme={theme} setTheme={setTheme} />
+    <div className="min-h-screen bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100 bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/bg-all.jpg')]">      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />
       <Skills />

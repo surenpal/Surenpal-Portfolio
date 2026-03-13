@@ -27,7 +27,7 @@ export default function Project() {
             imgSrc={ecommerceImg}
             title="E-Commerce-App"
             description="Undergoing e-commerce app built with React and Tailwind and the useContext."
-            url="https://e-commerce-audio-shop.vercel.app"
+            url="https://mela-shopping-e-commerce.vercel.app"
           />
 
           <ProjectCard
