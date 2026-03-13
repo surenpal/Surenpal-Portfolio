@@ -26,9 +26,9 @@ export default function Navbar({theme, setTheme}) {
         </div>
       </div>
       <button
-        onCLick= {toggleTheme}
-        classname= "px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-        ThemeMOde
+        onClick={toggleTheme}
+        className=" absolute right-6 top-4 px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+        Theme Mode
       </button>
     </nav>
   );
