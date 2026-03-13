@@ -25,6 +25,12 @@ export default function Navbar({theme, setTheme}) {
           <a href="#contact" className="hover:text-gray-100 transition-colors">Contact</a>
         </div>
       </div>
+      <button
+        onCLick= {toggleTheme}
+        classname= "px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-md text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+        {theme === "light" ? "Dark Mode" : "Light Mode"}
+        ThemeMOde
+      </button>
     </nav>
   );
 }

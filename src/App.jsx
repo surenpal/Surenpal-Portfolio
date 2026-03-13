@@ -5,9 +5,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { useState, useEffect } from "react";
-import "./index.css";
-import "./fonts.css";
-import "./App.css";
+
 
 export default function App() {
 
