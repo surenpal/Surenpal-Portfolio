@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { useState, useEffect } from "react";
 
+
 export default function App() {
 
   const [theme, setTheme] = useState(() => {
@@ -17,22 +18,20 @@ export default function App() {
 
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
-    } else {
+    }
+    else {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-
-      <Navbar theme={theme} setTheme={setTheme} />
-
+    <div className="min-h-screen bg-gray-200 dark:bg-gray-900 text-gray-900">      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />
       <Skills />
       <Projects />
       <Contact />
-
     </div>
+
   );
 }
