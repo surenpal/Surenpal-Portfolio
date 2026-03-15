@@ -31,16 +31,16 @@ export default function MyCareer() {
   ];
 
   return (
-    <section className="max-w-4xl mx-auto py-16 px-6">
+    <section className="w-full py-20 px-6">
 
       {/* Section Title */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-20">
 
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-gray-100">
           Career Timeline
         </h2>
 
-        <div className="w-16 h-1 bg-yellow-500 mx-auto mt-3 rounded"></div>
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mt-4 rounded"></div>
 
       </div>
 
@@ -58,7 +58,7 @@ export default function MyCareer() {
           viewport={{ once: true }}
         />
 
-        <div className="space-y-16">
+        <div className="space-y-20">
 
           {items.map((item, i) => {
 
@@ -79,18 +79,18 @@ export default function MyCareer() {
 
                 {/* Career Card */}
                 <div
-                  className="group w-[45%]
+                  className="group w-full md:w-[45%]
                   bg-gray-100 dark:bg-gray-800
-                  rounded-xl p-6
+                  rounded-xl p-8
                   shadow-md
-                  hover:-translate-y-1
+                  hover:-translate-y-2
                   hover:shadow-yellow-500/20 hover:shadow-lg
                   transition duration-300"
                 >
 
                   {/* Year */}
                   <p
-                    className="text-sm font-semibold text-yellow-500 mb-1
+                    className="text-base font-semibold text-yellow-500 mb-2
                     transition duration-300
                     group-hover:scale-110"
                   >
@@ -99,7 +99,7 @@ export default function MyCareer() {
 
                   {/* Title */}
                   <h3
-                    className="text-lg font-semibold text-gray-900 dark:text-white mb-2
+                    className="text-xl font-semibold text-gray-900 dark:text-white mb-3
                     transition-all duration-300
                     group-hover:text-yellow-500 group-hover:scale-105"
                   >
@@ -107,7 +107,7 @@ export default function MyCareer() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                     {item.text}
                   </p>
 
@@ -116,7 +116,7 @@ export default function MyCareer() {
                 {/* Timeline Dot */}
                 <div
                   className="absolute left-1/2 -translate-x-1/2
-                  w-5 h-5 rounded-full
+                  w-6 h-6 rounded-full
                   bg-yellow-500
                   border-4 border-white dark:border-gray-900
                   transition-transform duration-300

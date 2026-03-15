@@ -22,8 +22,6 @@ export default function Skills() {
       className="min-h-screen flex items-center justify-center px-6 pb-24
       bg-white dark:bg-gray-900"
     >
-
-      {/* WIDTH INCREASED */}
       <div className="max-w-6xl mx-auto text-center">
 
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
@@ -32,12 +30,12 @@ export default function Skills() {
 
         <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
 
-        {/* GRID EXPANDED */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
 
           {skills.map((skill, i) => {
 
-            const radius = 38;
+            const radius = 42;
             const circumference = 2 * Math.PI * radius;
             const offset = circumference - (skill.level / 100) * circumference;
 
@@ -49,19 +47,20 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="relative group bg-gray-100 dark:bg-gray-800
-                p-7 rounded-xl shadow-md
+                className="relative group w-52
+                bg-gray-100 dark:bg-gray-800
+                p-8 rounded-2xl shadow-md
                 hover:shadow-yellow-500/20 hover:shadow-lg
                 transition duration-300"
               >
 
                 {/* Icon */}
-                <div className="text-3xl text-yellow-500 mb-4 flex justify-center">
+                <div className="text-4xl text-yellow-500 mb-6 flex justify-center">
                   {skill.icon}
                 </div>
 
                 {/* Progress Ring */}
-                <div className="relative w-28 h-28 mx-auto mb-3">
+                <div className="relative w-28 h-28 mx-auto mb-4">
 
                   <svg className="w-full h-full transform -rotate-90">
 
@@ -70,7 +69,7 @@ export default function Skills() {
                       cy="56"
                       r={radius}
                       stroke="#374151"
-                      strokeWidth="6"
+                      strokeWidth="7"
                       fill="transparent"
                     />
 
@@ -79,7 +78,7 @@ export default function Skills() {
                       cy="56"
                       r={radius}
                       stroke="#eab308"
-                      strokeWidth="6"
+                      strokeWidth="7"
                       fill="transparent"
                       strokeDasharray={circumference}
                       strokeDashoffset={offset}
@@ -89,13 +88,14 @@ export default function Skills() {
                   </svg>
 
                   <span className="absolute inset-0 flex items-center justify-center
-                  text-sm font-semibold text-gray-700 dark:text-gray-200">
+                  text-base font-semibold text-gray-700 dark:text-gray-200">
                     {skill.level}%
                   </span>
 
                 </div>
 
-                <p className="font-semibold text-gray-800 dark:text-gray-200">
+                {/* Skill Name */}
+                <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
                   {skill.name}
                 </p>
 

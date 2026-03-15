@@ -8,29 +8,29 @@ export default function About() {
       bg-white dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >
-
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
 
         {/* Section Title */}
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
           About Me
         </h2>
 
-        {/* Small divider (professional portfolios often use this) */}
+        {/* Divider */}
         <div className="w-16 h-1 bg-yellow-500 mx-auto mb-8 rounded"></div>
 
         {/* Description */}
-        <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
           I am a React developer passionate about building modern, responsive
           web applications. I enjoy simplifying complex problems and creating
           clean, scalable projects that provide meaningful user experiences.
         </p>
 
-        {/* Career Timeline */}
-        <MyCareer />
+        {/* Timeline - Full Width */}
+        <div className="w-full">
+          <MyCareer />
+        </div>
 
       </div>
-
     </section>
   );
 }

@@ -9,21 +9,21 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center pb-24 px-6
+      className="min-h-screen flex items-center justify-center  pb-px-6
       bg-white dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >
-      <div className="max-w-6xl mx-auto text-center w-full">
+      <div className="max-w-6xl mx-auto text-center">
 
-        {/* Title */}
+        {/* Section Title (same style as Skills) */}
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
           Projects
         </h2>
 
         <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
 
-        {/* GAP REDUCED */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        {/* Responsive Grid (matches Skills layout style) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
           <ProjectCard
             imgSrc={ecommerceImg}
