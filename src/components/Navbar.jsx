@@ -5,7 +5,7 @@ export default function Navbar({ theme, setTheme }) {
   };
 
   return (
-    <nav className="w-full h-20 p-4 bg-white dark:bg-gray-800 fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
+    <nav className="w-full h-20 p-4 bg-oklch(90.1% 0.058 230.902) dark:bg-oklch(20% 0.058 230.902) fixed top-0 left-0 z-50 shadow-lg backdrop-blur-md">
       
       <div className="max-w-6xl mx-auto h-full px-6 flex justify-between items-center">
 

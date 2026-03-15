@@ -5,8 +5,8 @@ export default function Hero() {
     <section
       id="hero"
       className="min-h-screen flex flex-col items-center justify-center px-6 pb-16
-      bg-white dark:bg-gray-900
-      text-gray-900 dark:text-white"
+      bg-white dark:bg-oklch(86.8% 0.007 39.5)
+      text-gray-900"
     >
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
 
@@ -26,7 +26,7 @@ export default function Hero() {
           wrapper="span"
           speed={50}
           repeat={Infinity}
-          className="text-lg text-gray-600 dark:text-gray-300 mb-8"
+          className="text-lg text-gray-600 mb-8"
         />
 
         <a
