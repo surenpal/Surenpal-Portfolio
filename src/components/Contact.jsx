@@ -4,56 +4,97 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 pb-16
-      bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+      className="min-h-screen flex items-center justify-center  pb-24 px-6
+      bg-white dark:bg-gray-900
+      text-gray-900 dark:text-gray-100"
     >
-      <div className="max-w-xl w-full text-center">
 
-        <h2 className="text-4xl font-extrabold mb-6">
+      {/* WIDTH INCREASED HERE */}
+      <div className="max-w-2xl w-full text-center">
+
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
           Contact Me
         </h2>
 
-        <p className="text-gray-700 dark:text-gray-300 mb-8">
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mb-10 rounded"></div>
+
+        <p className="text-gray-600 dark:text-gray-400 mb-10">
           Feel free to reach out for collaboration or questions.
         </p>
 
-        {/* Contact Form */}
-        <form className="flex flex-col gap-4">
+        <div
+          className="group relative
+          bg-gray-100 dark:bg-gray-800
+          p-8 rounded-xl
+          shadow-md
+          hover:-translate-y-1
+          hover:shadow-yellow-500/20 hover:shadow-lg
+          transition duration-300"
+        >
 
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 outline-none"
+          <div
+            className="absolute inset-0 rounded-xl
+            border border-yellow-400/20
+            group-hover:border-yellow-400
+            transition"
           />
 
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 outline-none"
-          />
+          <form className="flex flex-col gap-4 relative z-10">
 
-          <textarea
-            rows="4"
-            placeholder="Your Message"
-            className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 outline-none"
-          ></textarea>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="p-3 rounded-lg
+              bg-white dark:bg-gray-900
+              border border-gray-300 dark:border-gray-700
+              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
+              outline-none transition"
+            />
 
-          <button
-            className="px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg
-            hover:bg-gray-700 dark:hover:bg-gray-600 transition transform hover:scale-105"
-          >
-            Send Message
-          </button>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="p-3 rounded-lg
+              bg-white dark:bg-gray-900
+              border border-gray-300 dark:border-gray-700
+              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
+              outline-none transition"
+            />
 
-        </form>
+            <textarea
+              rows="4"
+              placeholder="Your Message"
+              className="p-3 rounded-lg
+              bg-white dark:bg-gray-900
+              border border-gray-300 dark:border-gray-700
+              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
+              outline-none transition"
+            ></textarea>
 
-        {/* Social Icons */}
-        <div className="flex justify-center gap-6 mt-8 text-2xl">
+            <button
+              className="mt-2 px-6 py-3
+              bg-gray-800 dark:bg-gray-700
+              text-white font-semibold
+              rounded-lg
+              hover:bg-yellow-500 hover:text-black
+              transition transform hover:scale-105"
+            >
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+        <div className="flex justify-center gap-8 mt-10 text-2xl">
 
           <a
             href="https://github.com"
             target="_blank"
-            className="hover:scale-125 transition"
+            className="text-gray-700 dark:text-gray-300
+            hover:text-yellow-500
+            hover:scale-125
+            transition"
           >
             <FaGithub />
           </a>
@@ -61,7 +102,10 @@ export default function Contact() {
           <a
             href="https://linkedin.com"
             target="_blank"
-            className="hover:scale-125 transition"
+            className="text-gray-700 dark:text-gray-300
+            hover:text-yellow-500
+            hover:scale-125
+            transition"
           >
             <FaLinkedin />
           </a>
@@ -69,6 +113,7 @@ export default function Contact() {
         </div>
 
       </div>
+
     </section>
   );
 }

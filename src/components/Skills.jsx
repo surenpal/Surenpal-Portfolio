@@ -22,7 +22,9 @@ export default function Skills() {
       className="min-h-screen flex items-center justify-center px-6 pb-24
       bg-white dark:bg-gray-900"
     >
-      <div className="max-w-5xl mx-auto text-center">
+
+      {/* WIDTH INCREASED */}
+      <div className="max-w-6xl mx-auto text-center">
 
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
           Skills
@@ -30,11 +32,12 @@ export default function Skills() {
 
         <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        {/* GRID EXPANDED */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
 
           {skills.map((skill, i) => {
 
-            const radius = 36;
+            const radius = 38;
             const circumference = 2 * Math.PI * radius;
             const offset = circumference - (skill.level / 100) * circumference;
 
@@ -47,7 +50,7 @@ export default function Skills() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 className="relative group bg-gray-100 dark:bg-gray-800
-                p-6 rounded-xl shadow-md
+                p-7 rounded-xl shadow-md
                 hover:shadow-yellow-500/20 hover:shadow-lg
                 transition duration-300"
               >
@@ -58,13 +61,13 @@ export default function Skills() {
                 </div>
 
                 {/* Progress Ring */}
-                <div className="relative w-24 h-24 mx-auto mb-3">
+                <div className="relative w-28 h-28 mx-auto mb-3">
 
                   <svg className="w-full h-full transform -rotate-90">
 
                     <circle
-                      cx="48"
-                      cy="48"
+                      cx="56"
+                      cy="56"
                       r={radius}
                       stroke="#374151"
                       strokeWidth="6"
@@ -72,8 +75,8 @@ export default function Skills() {
                     />
 
                     <circle
-                      cx="48"
-                      cy="48"
+                      cx="56"
+                      cy="56"
                       r={radius}
                       stroke="#eab308"
                       strokeWidth="6"
@@ -92,7 +95,6 @@ export default function Skills() {
 
                 </div>
 
-                {/* Skill Name */}
                 <p className="font-semibold text-gray-800 dark:text-gray-200">
                   {skill.name}
                 </p>
