@@ -4,23 +4,29 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center px-6 pb-16
+      className="min-h-screen flex items-center justify-center px-6
       bg-white dark:bg-gray-900
-      text-gray-900 dark:text-white"
+      text-gray-900 dark:text-gray-100"
     >
 
-      <div className="relative p-8 rounded-2xl inline-block max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto text-center">
 
-        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-6">
+        {/* Section Title */}
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
           About Me
         </h2>
 
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-10">
-          I am a React developer who loves building learner-friendly resources.
-          I enjoy simplifying complex topics and creating clean, scalable
-          projects for teaching and real-world use.
+        {/* Small divider (professional portfolios often use this) */}
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mb-8 rounded"></div>
+
+        {/* Description */}
+        <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+          I am a React developer passionate about building modern, responsive
+          web applications. I enjoy simplifying complex problems and creating
+          clean, scalable projects that provide meaningful user experiences.
         </p>
 
+        {/* Career Timeline */}
         <MyCareer />
 
       </div>

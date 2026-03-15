@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@keyframes jumpLetter {
+
+  0% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  40% {
+    transform: translateY(-18px);
+    filter: blur(1px);
+    color: #facc15;
+  }
+
+  70% {
+    transform: translateY(-6px);
+    filter: blur(0.5px);
+  }
+
+  100% {
+    transform: translateY(0);
+    filter: blur(0);
+    color: #eab308;
+  }
+
+}
+
+.animate-jump {
+  animation-name: jumpLetter;
+  animation-fill-mode: both;
+}

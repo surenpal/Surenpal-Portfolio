@@ -1,37 +1,95 @@
 import { motion } from "framer-motion";
 
-export default function Mycareer() {
+export default function MyCareer() {
+
   const items = [
-    { title: "Japanese Language School", text: "Learn Japanese language and culture at Nagoya Fukutoku Nihongo Gakuin" },
-    { title: " 2 Year`s of college degree for IT", text: "Completed my 2 years IT course at Nagoya Future Technology College." },
-    { title: "Sales Manager", text: "Strong communication and leadership skills." },
-    { title: "React Developer Journey", text: "Started building learner-friendly resources." },
-    { title: "Future Vision", text: "Plan to be a good Full Stack Developer." },
+    {
+      year: "2019",
+      title: "Japanese Language School",
+      text: "Learned Japanese language and culture at Nagoya Fukutoku Nihongo Gakuin."
+    },
+    {
+      year: "2021",
+      title: "2 Years IT College Degree",
+      text: "Completed a two-year IT course at Nagoya Future Technology College."
+    },
+    {
+      year: "2022",
+      title: "Sales Manager",
+      text: "Developed strong communication and leadership skills."
+    },
+    {
+      year: "2023",
+      title: "React Developer Journey",
+      text: "Started building modern web applications and learner-friendly resources."
+    },
+    {
+      year: "Future",
+      title: "Full Stack Developer",
+      text: "Working toward becoming a skilled Full Stack Developer."
+    }
   ];
 
   return (
-<section id="career" className="max-w-4xl mx-auto py-20 px-6 bg-transparent">
-  <h2 className="text-3xl font-bold mb-10 text-center text-gray-400 text-shadow-md">
-    My Career
-  </h2>
+    <section className="relative max-w-4xl mx-auto py-16">
 
-  <div className="space-y-8">
-    {items.map((item, i) => (
-      <motion.div
-        key={i}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: i * 0.2 }}
-        viewport={{ once: true }}
-        className="rounded-lg p-6 bg-gray-800/50 backdrop-blur-sm border border-gray-700"
-      >
-        <h3 className="text-xl font-semibold text-white mb-2">
-          {item.title}
-        </h3>
-        <p className="text-gray-300">{item.text}</p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+      {/* Title */}
+      <div className="text-center mb-14">
+
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
+          My Career
+        </h2>
+
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mt-3 rounded"></div>
+
+      </div>
+
+      {/* Timeline Line */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gray-300 dark:bg-gray-700"></div>
+
+      <div className="space-y-16">
+
+        {items.map((item, i) => {
+
+          const isLeft = i % 2 === 0;
+
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className={`relative flex items-center ${isLeft ? "justify-start" : "justify-end"
+                }`}
+            >
+
+              {/* Card */}
+              <div className="w-[45%] bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+
+                <p className="text-sm font-semibold text-yellow-500 mb-1">
+                  {item.year}
+                </p>
+
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  {item.text}
+                </p>
+
+              </div>
+
+              {/* Timeline Dot */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-yellow-500 border-4 border-white dark:border-gray-900"></div>
+
+            </motion.div>
+          );
+        })}
+
+      </div>
+
+    </section>
   );
 }
