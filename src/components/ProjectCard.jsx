@@ -1,28 +1,66 @@
 export default function ProjectCard({ title, description, url, imgSrc }) {
   return (
-    <div className="w-64 bg-gray-900 rounded-xl overflow-hidden shadow-md">
+    <div
+      className="group relative w-72
+      bg-gray-100 dark:bg-gray-800
+      rounded-xl overflow-hidden
+      shadow-md
+      hover:-translate-y-2
+      hover:shadow-yellow-500/20 hover:shadow-lg
+      transition duration-300"
+    >
+
+      {/* Animated Border */}
+      <div
+        className="absolute inset-0 rounded-xl
+        border border-yellow-400/20
+        group-hover:border-yellow-400
+        transition"
+      />
+
+      {/* Image */}
       <div className="overflow-hidden">
         <img
           src={imgSrc}
-          className="w-full h-40 object-contain transition duration-300 hover:scale-110 p-5"
+          alt={title}
+          className="w-full h-44 object-contain p-6
+          transition duration-500
+          group-hover:scale-110"
         />
       </div>
 
-      <div className="p-4 text-center bg-gray-900">
-        <h2 className="text-lg font-semibold text-gray-300">{title}</h2>
+      {/* Content */}
+      <div className="p-5 text-center">
 
-        <p className="text-sm text-gray-400 mt-2">
+        {/* Title */}
+        <h2
+          className="text-lg font-semibold
+          text-gray-800 dark:text-gray-200
+          transition duration-300
+          group-hover:text-yellow-500"
+        >
+          {title}
+        </h2>
+
+        {/* Description */}
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
           {description}
         </p>
 
+        {/* Button */}
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white font-medium hover:underline mt-3 inline-block text-shadow-md" 
+          className="inline-block mt-4
+          font-semibold
+          text-gray-800 dark:text-gray-200
+          transition duration-300
+          group-hover:text-yellow-500"
         >
-          Visit Project
+          Visit Project →
         </a>
+
       </div>
     </div>
   );
