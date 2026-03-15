@@ -31,63 +31,104 @@ export default function MyCareer() {
   ];
 
   return (
-    <section className="relative max-w-4xl mx-auto py-16">
+    <section className="max-w-4xl mx-auto py-16 px-6">
 
-      {/* Title */}
-      <div className="text-center mb-14">
+      {/* Section Title */}
+      <div className="text-center mb-16">
 
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
-          My Career
+          Career Timeline
         </h2>
 
         <div className="w-16 h-1 bg-yellow-500 mx-auto mt-3 rounded"></div>
 
       </div>
 
-      {/* Timeline Line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gray-300 dark:bg-gray-700"></div>
+      {/* Timeline Container */}
+      <div className="relative">
 
-      <div className="space-y-16">
+        {/* Animated Timeline Line */}
+        <motion.div
+          className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
+          bg-gradient-to-b from-yellow-400 via-yellow-500 to-yellow-600
+          origin-top shadow-[0_0_10px_rgba(234,179,8,0.7)]"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
 
-        {items.map((item, i) => {
+        <div className="space-y-16">
 
-          const isLeft = i % 2 === 0;
+          {items.map((item, i) => {
 
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className={`relative flex items-center ${isLeft ? "justify-start" : "justify-end"
+            const isLeft = i % 2 === 0;
+
+            return (
+
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className={`relative flex items-center ${
+                  isLeft ? "justify-start" : "justify-end"
                 }`}
-            >
+              >
 
-              {/* Card */}
-              <div className="w-[45%] bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+                {/* Career Card */}
+                <div
+                  className="group w-[45%]
+                  bg-gray-100 dark:bg-gray-800
+                  rounded-xl p-6
+                  shadow-md
+                  hover:-translate-y-1
+                  hover:shadow-yellow-500/20 hover:shadow-lg
+                  transition duration-300"
+                >
 
-                <p className="text-sm font-semibold text-yellow-500 mb-1">
-                  {item.year}
-                </p>
+                  {/* Year */}
+                  <p
+                    className="text-sm font-semibold text-yellow-500 mb-1
+                    transition duration-300
+                    group-hover:scale-110"
+                  >
+                    {item.year}
+                  </p>
 
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {item.title}
-                </h3>
+                  {/* Title */}
+                  <h3
+                    className="text-lg font-semibold text-gray-900 dark:text-white mb-2
+                    transition-all duration-300
+                    group-hover:text-yellow-500 group-hover:scale-105"
+                  >
+                    {item.title}
+                  </h3>
 
-                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                  {item.text}
-                </p>
+                  {/* Description */}
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    {item.text}
+                  </p>
 
-              </div>
+                </div>
 
-              {/* Timeline Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-yellow-500 border-4 border-white dark:border-gray-900"></div>
+                {/* Timeline Dot */}
+                <div
+                  className="absolute left-1/2 -translate-x-1/2
+                  w-5 h-5 rounded-full
+                  bg-yellow-500
+                  border-4 border-white dark:border-gray-900
+                  transition-transform duration-300
+                  hover:scale-125"
+                />
 
-            </motion.div>
-          );
-        })}
+              </motion.div>
 
+            );
+          })}
+
+        </div>
       </div>
 
     </section>

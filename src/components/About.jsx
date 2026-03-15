@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center px-6
+      className="min-h-screen flex items-center justify-center px-6 pb-24
       bg-white dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >

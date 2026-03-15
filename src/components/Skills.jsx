@@ -1,58 +1,107 @@
+import { motion } from "framer-motion";
+import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiGithub } from "react-icons/si";
+
 export default function Skills() {
+
+  const skills = [
+    { name: "React", level: 60, icon: <FaReact /> },
+    { name: "JavaScript", level: 70, icon: <FaJs /> },
+    { name: "Tailwind", level: 75, icon: <SiTailwindcss /> },
+    { name: "HTML", level: 80, icon: <FaHtml5 /> },
+    { name: "CSS", level: 80, icon: <FaCss3Alt /> },
+    { name: "GitHub", level: 65, icon: <SiGithub /> },
+    { name: "MongoDB", level: 55, icon: <SiMongodb /> },
+    { name: "Java", level: 50, icon: <FaJava /> },
+    { name: "Python", level: 50, icon: <FaPython /> }
+  ];
+
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col items-center justify-center px-6 pb-16
-      bg-white dark:bg-gray-900
-      text-gray-900 dark:text-white"
+      className="min-h-screen flex items-center justify-center px-6
+      bg-white dark:bg-gray-900"
     >
-      <div className="relative z-10">
+      <div className="max-w-5xl mx-auto text-center">
 
-        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-8">
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
           Skills
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            React
-          </span>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            Tailwind
-          </span>
+          {skills.map((skill, i) => {
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            JavaScript
-          </span>
+            const radius = 36;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (skill.level / 100) * circumference;
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            HTML
-          </span>
+            return (
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            CSS
-          </span>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="relative group bg-gray-100 dark:bg-gray-800
+                p-6 rounded-xl shadow-md
+                hover:shadow-yellow-500/20 hover:shadow-lg
+                transition duration-300"
+              >
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            GitHub
-          </span>
+                {/* Icon */}
+                <div className="text-3xl text-yellow-500 mb-4 flex justify-center">
+                  {skill.icon}
+                </div>
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            MongoDB
-          </span>
+                {/* Progress Ring */}
+                <div className="relative w-24 h-24 mx-auto mb-3">
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            Java
-          </span>
+                  <svg className="w-full h-full transform -rotate-90">
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            Python
-          </span>
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r={radius}
+                      stroke="#374151"
+                      strokeWidth="6"
+                      fill="transparent"
+                    />
 
-          <span className="px-5 py-2 bg-gray-200 dark:bg-gray-800 shadow-md rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:scale-105 transition">
-            Server
-          </span>
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r={radius}
+                      stroke="#eab308"
+                      strokeWidth="6"
+                      fill="transparent"
+                      strokeDasharray={circumference}
+                      strokeDashoffset={offset}
+                      className="transition-all duration-700"
+                    />
+
+                  </svg>
+
+                  <span className="absolute inset-0 flex items-center justify-center
+                  text-sm font-semibold text-gray-700 dark:text-gray-200">
+                    {skill.level}%
+                  </span>
+
+                </div>
+
+                {/* Skill Name */}
+                <p className="font-semibold text-gray-800 dark:text-gray-200">
+                  {skill.name}
+                </p>
+
+              </motion.div>
+
+            );
+
+          })}
 
         </div>
 
