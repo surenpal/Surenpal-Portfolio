@@ -25,7 +25,7 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-gray-200 dark:bg-gray-900 text-gray-900">      <Navbar theme={theme} setTheme={setTheme} />
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900">      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />
       <Skills />
