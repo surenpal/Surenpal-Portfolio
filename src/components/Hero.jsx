@@ -1,7 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
 export default function Hero() {
 
   const [btnStyle, setBtnStyle] = useState({});
