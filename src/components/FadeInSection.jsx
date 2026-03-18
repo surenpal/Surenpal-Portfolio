@@ -1,4 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import {useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function FadeInSection({ children }) {
   const { scrollY } = useScroll();
