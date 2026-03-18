@@ -1,7 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FadeInSection } from "./FadeInSection";
 
 
 export default function Hero() {

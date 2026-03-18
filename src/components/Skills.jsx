@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
+import FadeInSection from "./FadeInSection";
 import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiGithub } from "react-icons/si";
 
 export default function Skills() {
-
   const skills = [
     { name: "React", level: 60, icon: <FaReact /> },
     { name: "JavaScript", level: 70, icon: <FaJs /> },
@@ -13,101 +13,111 @@ export default function Skills() {
     { name: "GitHub", level: 65, icon: <SiGithub /> },
     { name: "MongoDB", level: 55, icon: <SiMongodb /> },
     { name: "Java", level: 50, icon: <FaJava /> },
-    { name: "Python", level: 50, icon: <FaPython /> }
+    { name: "Python", level: 50, icon: <FaPython /> },
   ];
 
   return (
     <section
       id="skills"
-      className="min-h-screen flex items-center justify-center px-6 pb-30
-      bg-white dark:bg-gray-900"
+      className="min-h-screen flex items-center justify-center px-6 pb-24
+      text-gray-900 dark:text-gray-100"
     >
-      <div className="max-w-6xl mx-auto text-center">
+      <FadeInSection>
+        <div className="max-w-6xl mx-auto text-center">
 
-        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
-          Skills
-        </h2>
+          {/* Title */}
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
+            Skills
+          </h2>
 
-        <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
+          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+          {/* Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
 
-          {skills.map((skill, i) => {
+            {skills.map((skill, i) => {
+              const radius = 42;
+              const circumference = 2 * Math.PI * radius;
+              const offset = circumference - (skill.level / 100) * circumference;
 
-            const radius = 42;
-            const circumference = 2 * Math.PI * radius;
-            const offset = circumference - (skill.level / 100) * circumference;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.08 }}
+                  viewport={{ once: true }}
+                  className="relative group w-52
+                  backdrop-blur-lg
+                  bg-white/10 dark:bg-white/5
+                  border border-white/20
+                  p-8 rounded-2xl
+                  shadow-lg
+                  hover:shadow-yellow-500/20
+                  hover:-translate-y-2
+                  transition-all duration-300"
+                >
 
-            return (
+                  {/* Glow Hover Effect */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
+                  bg-gradient-to-r from-yellow-400/10 via-pink-400/10 to-purple-400/10
+                  blur-xl transition" />
 
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="relative group w-52
-                bg-gray-100 dark:bg-gray-800
-                p-8 rounded-2xl shadow-md
-                hover:shadow-yellow-500/20 hover:shadow-lg
-                transition duration-300"
-              >
+                  {/* Icon */}
+                  <div className="relative text-4xl text-yellow-500 mb-6 flex justify-center z-10">
+                    {skill.icon}
+                  </div>
 
-                {/* Icon */}
-                <div className="text-4xl text-yellow-500 mb-6 flex justify-center">
-                  {skill.icon}
-                </div>
+                  {/* Progress Ring */}
+                  <div className="relative w-28 h-28 mx-auto mb-4 z-10">
+                    <svg className="w-full h-full -rotate-90">
 
-                {/* Progress Ring */}
-                <div className="relative w-28 h-28 mx-auto mb-4">
+                      {/* Background ring */}
+                      <circle
+                        cx="56"
+                        cy="56"
+                        r={radius}
+                        stroke="currentColor"
+                        className="text-gray-300 dark:text-gray-700"
+                        strokeWidth="6"
+                        fill="transparent"
+                      />
 
-                  <svg className="w-full h-full transform -rotate-90">
+                      {/* Animated progress */}
+                      <motion.circle
+                        cx="56"
+                        cy="56"
+                        r={radius}
+                        stroke="#eab308"
+                        strokeWidth="6"
+                        fill="transparent"
+                        strokeDasharray={circumference}
+                        initial={{ strokeDashoffset: circumference }}
+                        whileInView={{ strokeDashoffset: offset }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                      />
 
-                    <circle
-                      cx="56"
-                      cy="56"
-                      r={radius}
-                      stroke="#374151"
-                      strokeWidth="7"
-                      fill="transparent"
-                    />
+                    </svg>
 
-                    <circle
-                      cx="56"
-                      cy="56"
-                      r={radius}
-                      stroke="#eab308"
-                      strokeWidth="7"
-                      fill="transparent"
-                      strokeDasharray={circumference}
-                      strokeDashoffset={offset}
-                      className="transition-all duration-700"
-                    />
+                    <span className="absolute inset-0 flex items-center justify-center
+                    text-sm font-semibold text-gray-800 dark:text-gray-200">
+                      {skill.level}%
+                    </span>
+                  </div>
 
-                  </svg>
+                  {/* Name */}
+                  <p className="relative text-lg font-semibold z-10">
+                    {skill.name}
+                  </p>
 
-                  <span className="absolute inset-0 flex items-center justify-center
-                  text-base font-semibold text-gray-700 dark:text-gray-200">
-                    {skill.level}%
-                  </span>
+                </motion.div>
+              );
+            })}
 
-                </div>
-
-                {/* Skill Name */}
-                <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                  {skill.name}
-                </p>
-
-              </motion.div>
-
-            );
-
-          })}
-
+          </div>
         </div>
-
-      </div>
+      </FadeInSection>
     </section>
   );
 }
