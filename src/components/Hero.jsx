@@ -8,7 +8,7 @@ export default function Hero() {
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center px-6
-      bg-white dark:bg-gray-900
+      bg-pink-100 dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">

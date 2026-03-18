@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import { useState, useEffect } from "react";
 
 
+
 export default function App() {
 
   const [theme, setTheme] = useState(() => {
@@ -25,7 +26,7 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900">      <Navbar theme={theme} setTheme={setTheme} />
+    <div className="min-h-screen bg-white-100 dark:bg-gray-900 text-gray-900">      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <About />
       <Skills />

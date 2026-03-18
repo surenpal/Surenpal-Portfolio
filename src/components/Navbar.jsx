@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-export default function Navbar({ theme, setTheme }) {
+export default function Navbar({ theme, toggleTheme }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -14,7 +10,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 
-    bg-white/80 dark:bg-gray-900/80 
+    bg-pink-100 dark:bg-gray-900 
     backdrop-blur-md shadow-sm">
 
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
@@ -55,7 +51,7 @@ export default function Navbar({ theme, setTheme }) {
           <button
             onClick={toggleTheme}
             className="px-4 py-2 rounded-lg text-sm font-medium
-            bg-gray-200 dark:bg-gray-700
+            bg-pink-200 dark:bg-gray-700
             text-gray-800 dark:text-gray-200
             hover:scale-105 transition"
           >
