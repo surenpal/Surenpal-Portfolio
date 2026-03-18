@@ -6,7 +6,6 @@ export default function Hero() {
 
   const [btnStyle, setBtnStyle] = useState({});
 
-  // ✨ Stagger animation
   const container = {
     hidden: {},
     show: {
@@ -38,25 +37,23 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-6
-      bg-pink-100 dark:bg-gray-900 overflow-hidden
+      bg-white dark:bg-gray-900 overflow-hidden
       text-gray-900 dark:text-gray-100"
     >
 
-      {/* 🌫️ Floating Glow Background */}
-      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-yellow-400/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
+      {/* 🌫️ Soft Background Glow (still needed for depth) */}
+      <div className="absolute top-[-120px] left-[-120px] w-[320px] h-[320px] bg-yellow-400/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-120px] right-[-120px] w-[320px] h-[320px] bg-purple-500/20 rounded-full blur-3xl" />
 
-      {/* 🧊 Glass Container */}
+      {/* ✨ MAIN CONTENT (fully blended) */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-4xl mx-auto text-center flex flex-col items-center
-        backdrop-blur-xl bg-white/10 dark:bg-white/5
-        border border-white/20 rounded-2xl p-10 shadow-2xl"
+        className="max-w-4xl mx-auto text-center flex flex-col items-center"
       >
 
-        {/* 🌈 Gradient Animated Name */}
+        {/* 🌈 Gradient Name */}
         <motion.h1
           variants={item}
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
@@ -92,7 +89,7 @@ export default function Hero() {
           onMouseLeave={reset}
           style={btnStyle}
           className="mt-10 px-8 py-3 bg-yellow-500 text-white rounded-xl
-          shadow-md hover:bg-yellow-600 hover:shadow-yellow-500/40
+          hover:bg-yellow-600 hover:shadow-yellow-500/40
           transition-all duration-300 inline-block"
         >
           View Projects
