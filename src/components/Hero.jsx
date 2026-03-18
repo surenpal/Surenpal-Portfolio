@@ -1,60 +1,104 @@
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Hero() {
 
-  const name = "Hi, I'm Suren Pal".split("");
+  const [btnStyle, setBtnStyle] = useState({});
+
+  // ✨ Stagger animation
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  // 🧲 Magnetic button
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    setBtnStyle({
+      transform: `translate(${x * 0.2}px, ${y * 0.2}px)`,
+    });
+  };
+
+  const reset = () => setBtnStyle({ transform: "translate(0,0)" });
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6
-      bg-pink-100 dark:bg-gray-900
+      className="relative min-h-screen flex items-center justify-center px-6
+      bg-pink-100 dark:bg-gray-900 overflow-hidden
       text-gray-900 dark:text-gray-100"
     >
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
 
-        {/* Animated Name */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-yellow-500">
-          {name.map((letter, index) => (
-            <span
-              key={index}
-              className="inline-block animate-jump"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-                animationDuration: "0.8s",
-              }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </span>
-          ))}
-        </h1>
+      {/* 🌫️ Floating Glow Background */}
+      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-yellow-400/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
 
-        {/* Animated Role */}
-        <TypeAnimation
-          sequence={[
-            "React Developer",
-            2000,
-            "Full Stack Developer",
-            2000,
-            "Fast Learner",
-            2000,
-          ]}
-          wrapper="span"
-          speed={50}
-          repeat={Infinity}
-          className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-medium"
-        />
+      {/* 🧊 Glass Container */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-4xl mx-auto text-center flex flex-col items-center
+        backdrop-blur-xl bg-white/10 dark:bg-white/5
+        border border-white/20 rounded-2xl p-10 shadow-2xl"
+      >
 
-        <a
+        {/* 🌈 Gradient Animated Name */}
+        <motion.h1
+          variants={item}
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
+          bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
+          bg-clip-text text-transparent animate-gradient"
+        >
+          Hi, I'm Suren Pal
+        </motion.h1>
+
+        {/* ⌨️ Typing Role */}
+        <motion.div variants={item}>
+          <TypeAnimation
+            sequence={[
+              "React Developer",
+              2000,
+              "Full Stack Developer",
+              2000,
+              "Fast Learner",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-medium"
+          />
+        </motion.div>
+
+        {/* 🧲 Magnetic Button */}
+        <motion.a
+          variants={item}
           href="#projects"
-          className="mt-10 px-8 py-3 bg-yellow-500 text-white rounded-lg
-          shadow-md hover:bg-yellow-600 hover:shadow-lg
-          transition-all duration-300"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={reset}
+          style={btnStyle}
+          className="mt-10 px-8 py-3 bg-yellow-500 text-white rounded-xl
+          shadow-md hover:bg-yellow-600 hover:shadow-yellow-500/40
+          transition-all duration-300 inline-block"
         >
           View Projects
-        </a>
+        </motion.a>
 
-      </div>
+      </motion.div>
     </section>
   );
 }
