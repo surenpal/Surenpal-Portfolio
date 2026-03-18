@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center  pb-12 px-6
+      className="min-h-screen flex items-center justify-center  pb-30 px-6
       bg-white dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >

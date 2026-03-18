@@ -4,12 +4,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center  pb-24 px-6
+      className="min-h-screen flex items-center justify-center pb-24 px-6
       bg-white dark:bg-gray-900
       text-gray-900 dark:text-gray-100"
     >
-
-      {/* WIDTH INCREASED HERE */}
       <div className="max-w-2xl w-full text-center">
 
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
@@ -18,61 +16,61 @@ export default function Contact() {
 
         <div className="w-16 h-1 bg-yellow-500 mx-auto mb-10 rounded"></div>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-10">
+        {/* ✅ Bold text */}
+        <p className="text-gray-600 dark:text-gray-400 font-semibold mb-10">
           Feel free to reach out for collaboration or questions.
         </p>
 
-        <div
-          className="group relative
-          bg-gray-100 dark:bg-gray-800
-          p-8 rounded-xl
-          shadow-md
-          hover:-translate-y-1
-          hover:shadow-yellow-500/20 hover:shadow-lg
-          transition duration-300"
-        >
+        {/* ✅ Removed background + border container */}
+        <div className="p-8">
 
-          <div
-            className="absolute inset-0 rounded-xl
-            border border-yellow-400/20
-            group-hover:border-yellow-400
-            transition"
-          />
+          <form className="flex flex-col gap-8">
 
-          <form className="flex flex-col gap-4 relative z-10">
-
+            {/* NAME */}
             <input
               type="text"
               placeholder="Your Name"
-              className="p-3 rounded-lg
-              bg-white dark:bg-gray-900
-              border border-gray-300 dark:border-gray-700
-              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
-              outline-none transition"
+              className="
+              bg-transparent
+              border-b border-gray-400 dark:border-gray-600
+              py-2
+              focus:border-yellow-500
+              focus:outline-none
+              transition
+              placeholder-gray-500 dark:placeholder-gray-400"
             />
 
+            {/* EMAIL */}
             <input
               type="email"
               placeholder="Your Email"
-              className="p-3 rounded-lg
-              bg-white dark:bg-gray-900
-              border border-gray-300 dark:border-gray-700
-              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
-              outline-none transition"
+              className="
+              bg-transparent
+              border-b border-gray-400 dark:border-gray-600
+              py-2
+              focus:border-yellow-500
+              focus:outline-none
+              transition
+              placeholder-gray-500 dark:placeholder-gray-400"
             />
 
+            {/* MESSAGE */}
             <textarea
               rows="4"
               placeholder="Your Message"
-              className="p-3 rounded-lg
-              bg-white dark:bg-gray-900
-              border border-gray-300 dark:border-gray-700
-              focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
-              outline-none transition"
+              className="
+              bg-transparent
+              border-b border-gray-400 dark:border-gray-600
+              py-2
+              resize-none
+              focus:border-yellow-500
+              focus:outline-none
+              transition
+              placeholder-gray-500 dark:placeholder-gray-400"
             ></textarea>
 
             <button
-              className="mt-2 px-6 py-3
+              className="mt-4 px-6 py-3
               bg-gray-800 dark:bg-gray-700
               text-white font-semibold
               rounded-lg
@@ -113,7 +111,6 @@ export default function Contact() {
         </div>
 
       </div>
-
     </section>
   );
 }
