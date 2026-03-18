@@ -10,7 +10,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 
-    bg-pink-100 dark:bg-gray-900 
+    bg-pink-100 dark:bg-gray-900
     backdrop-blur-md shadow-sm">
 
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
