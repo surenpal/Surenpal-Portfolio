@@ -1,4 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useState } from "react";
 export default function Hero() {

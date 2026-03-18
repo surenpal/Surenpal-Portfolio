@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 export default function Navbar({ theme, toggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,11 +21,10 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-      ${
-        scrolled
+      ${scrolled
           ? "bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl shadow-md"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
 
@@ -61,13 +63,37 @@ export default function Navbar({ theme, toggleTheme }) {
 
           {/* Theme Toggle */}
           <button
-            onClick={toggleTheme}
-            className="px-4 py-2 rounded-full text-sm font-medium
-            bg-gradient-to-r from-yellow-400 to-pink-500
-            text-white hover:scale-105 transition"
-          >
-            {theme === "light" ? "🌙" : "☀️"}
-          </button>
+  onClick={toggleTheme}
+  className="p-2 rounded-full
+  text-gray-700 dark:text-gray-300
+  hover:bg-black/5 dark:hover:bg-white/10
+  hover:scale-110
+  transition-all duration-300 relative"
+>
+  <AnimatePresence mode="wait">
+    {theme === "light" ? (
+      <motion.span
+        key="moon"
+        initial={{ rotate: -90, opacity: 0 }}
+        animate={{ rotate: 0, opacity: 1 }}
+        exit={{ rotate: 90, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <FiMoon size={20} />
+      </motion.span>
+    ) : (
+      <motion.span
+        key="sun"
+        initial={{ rotate: 90, opacity: 0 }}
+        animate={{ rotate: 0, opacity: 1 }}
+        exit={{ rotate: -90, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <FiSun size={20} />
+      </motion.span>
+    )}
+  </AnimatePresence>
+</button>
 
           {/* Hamburger */}
           <button
@@ -96,11 +122,10 @@ export default function Navbar({ theme, toggleTheme }) {
         className={`md:hidden absolute top-20 left-0 w-full
         bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl
         transition-all duration-300
-        ${
-          menuOpen
+        ${menuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+          }`}
       >
         <div className="flex flex-col items-center gap-6 py-6 font-semibold text-gray-700 dark:text-gray-300">
 
