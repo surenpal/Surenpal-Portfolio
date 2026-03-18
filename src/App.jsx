@@ -8,27 +8,37 @@ import { useState, useEffect } from "react";
 
 export default function App() {
 
+  // Theme state, default from localStorage or light
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
 
+  // Toggle function passed to Navbar
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  // Apply/remove dark class on <html> and save theme
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    const root = document.documentElement;
+
+    // Reset classes
+    root.classList.remove("dark");
 
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.add("dark");
     }
+
+    // Save theme to localStorage
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
     <div className="min-h-screen bg-pink-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      {/* Navbar with toggle function */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
+
+      {/* Main sections */}
       <Hero />
       <About />
       <Skills />
