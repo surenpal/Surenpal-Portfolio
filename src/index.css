@@ -80,8 +80,15 @@
 
 
 /* Smooth theme transition */
-* {
-  transition: background-color 0.4s ease, 
-              color 0.4s ease, 
+
+body, div, section, nav, button, a {
+  transition: background-color 0.4s ease,
+              color 0.4s ease,
               border-color 0.4s ease;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

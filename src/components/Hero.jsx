@@ -1,7 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
-import { FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useState } from "react";
+
 export default function Hero() {
 
   const [btnStyle, setBtnStyle] = useState({});
@@ -15,9 +15,18 @@ export default function Hero() {
     },
   };
 
+  // 🔥 Apple-style reveal animation
   const item = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 },
+    hidden: { y: "100%", opacity: 0, filter: "blur(8px)" },
+    show: {
+      y: "0%",
+      opacity: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
   };
 
   // 🧲 Magnetic button
@@ -37,15 +46,11 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-6
-      bg-white dark:bg-gray-900 overflow-hidden
+      overflow-hidden
       text-gray-900 dark:text-gray-100"
     >
 
-      {/* 🌫️ Soft Background Glow (still needed for depth) */}
-      <div className="absolute top-[-120px] left-[-120px] w-[320px] h-[320px] bg-yellow-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-120px] right-[-120px] w-[320px] h-[320px] bg-purple-500/20 rounded-full blur-3xl" />
-
-      {/* ✨ MAIN CONTENT (fully blended) */}
+      {/* ✨ MAIN CONTENT */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -53,18 +58,28 @@ export default function Hero() {
         className="max-w-4xl mx-auto text-center flex flex-col items-center"
       >
 
-        {/* 🌈 Gradient Name */}
-        <motion.h1
-          variants={item}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
-          bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
-          bg-clip-text text-transparent animate-gradient"
-        >
-          Hi, I'm Suren Pal
-        </motion.h1>
+        {/* 🧠 Apple-style Text Reveal */}
+        <div className="overflow-hidden">
+          <motion.h1
+            className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
+            bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
+            bg-clip-text text-transparent"
+          >
+            {["Hi,", "I'm", "Suren Pal"].map((word, index) => (
+              <div key={index} className="overflow-hidden">
+                <motion.span
+                  variants={item}
+                  className="inline-block mr-4"
+                >
+                  {word}
+                </motion.span>
+              </div>
+            ))}
+          </motion.h1>
+        </div>
 
         {/* ⌨️ Typing Role */}
-        <motion.div variants={item}>
+        <motion.div variants={item} transition={{ delay: 0.6 }}>
           <TypeAnimation
             sequence={[
               "React Developer",
@@ -87,9 +102,14 @@ export default function Hero() {
           href="#projects"
           onMouseMove={handleMouseMove}
           onMouseLeave={reset}
+          whileTap={{ scale: 0.95 }}
           style={btnStyle}
-          className="mt-10 px-8 py-3 bg-yellow-500 text-white rounded-xl
-          hover:bg-yellow-600 hover:shadow-yellow-500/40
+          className="mt-10 px-8 py-3
+          bg-yellow-500 text-white
+          rounded-xl
+          shadow-md
+          hover:bg-yellow-600
+          hover:shadow-yellow-500/40
           transition-all duration-300 inline-block"
         >
           View Projects
