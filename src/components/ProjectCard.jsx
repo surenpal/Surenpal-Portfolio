@@ -8,7 +8,7 @@ export default function ProjectCard({ title, description, url, imgSrc }) {
       viewport={{ once: true }}
       whileHover={{ y: -10 }}
       transition={{ duration: 0.4 }}
-      className="group relative w-72 rounded-2xl overflow-hidden
+      className="group relative w-[260px] xs:w-72 rounded-2xl overflow-hidden
       backdrop-blur-lg
       bg-white/10 dark:bg-white/5
       border border-white/20
@@ -25,25 +25,32 @@ export default function ProjectCard({ title, description, url, imgSrc }) {
         <img
           src={imgSrc}
           alt={title}
-          className="w-full h-48 object-cover
+          className="w-full h-40 xs:h-48 object-cover
           transition duration-500
           group-hover:scale-110 group-hover:brightness-75"
         />
 
-        {/* 🔥 Hover Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center
-        opacity-0 group-hover:opacity-100
-        transition duration-500">
+        {/* 🔥 Overlay */}
+        <div className="
+          absolute inset-0 flex items-center justify-center
+          opacity-100 xs:opacity-0 xs:group-hover:opacity-100
+          transition duration-500
+        ">
 
           <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 rounded-lg
-            bg-yellow-500 text-black font-semibold
-            shadow-md
-            hover:scale-105
-            transition"
+            className="
+              px-4 py-2 xs:px-6 xs:py-2
+              text-xs xs:text-sm
+              rounded-lg
+              bg-yellow-500 text-black font-semibold
+              shadow-md
+              hover:scale-105
+              transition
+              whitespace-nowrap
+            "
           >
             View Project
           </a>
@@ -51,17 +58,17 @@ export default function ProjectCard({ title, description, url, imgSrc }) {
       </div>
 
       {/* 📄 Content */}
-      <div className="relative p-5 text-center z-10">
+      <div className="relative p-4 xs:p-5 text-center z-10">
 
         {/* Title */}
-        <h2 className="text-lg font-semibold mb-2
+        <h2 className="text-base xs:text-lg font-semibold mb-2
         text-gray-900 dark:text-gray-100
         group-hover:text-yellow-500 transition">
           {title}
         </h2>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400">
           {description}
         </p>
 
