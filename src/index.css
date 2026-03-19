@@ -1,29 +1,28 @@
+/* Tailwind (keep only if using Tailwind v4) */
 @import "tailwindcss";
 
+/* =========================
+   Jump Letter Animation
+========================= */
 @keyframes jumpLetter {
-
   0% {
     transform: translateY(0);
     filter: blur(0);
   }
-
   40% {
     transform: translateY(-18px);
     filter: blur(1px);
     color: #facc15;
   }
-
   70% {
     transform: translateY(-6px);
     filter: blur(0.5px);
   }
-
   100% {
     transform: translateY(0);
     filter: blur(0);
     color: #eab308;
   }
-
 }
 
 .animate-jump {
@@ -31,13 +30,14 @@
   animation-fill-mode: both;
 }
 
-
+/* =========================
+   Skill Card Border Effect
+========================= */
 .skill-card {
   position: relative;
   overflow: hidden;
 }
 
-/* moving border */
 .skill-card::before {
   content: "";
   position: absolute;
@@ -63,32 +63,21 @@
 }
 
 @keyframes borderMove {
-
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
-
 }
 
-
-/* Smooth theme transition */
-
-body, div, section, nav, button, a {
+/* =========================
+   Smooth Theme Transition (FIXED)
+========================= */
+body {
   transition: background-color 0.4s ease,
-              color 0.4s ease,
-              border-color 0.4s ease;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+              color 0.4s ease;
 }
