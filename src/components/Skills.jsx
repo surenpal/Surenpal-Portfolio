@@ -122,16 +122,4 @@ export default function Skills() {
   );
 }
 
-/*
-ADD THIS TO tailwind.config.js
---------------------------------
-module.exports = {
-  theme: {
-    extend: {
-      screens: {
-        xs: "360px",
-      },
-    },
-  },
-};
-*/
+

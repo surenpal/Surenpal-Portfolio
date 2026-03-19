@@ -13,8 +13,12 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
       },
+      screens: {
+        xs: "360px",
+      },
     },
   },
 
   plugins: [],
 };
+
