@@ -43,7 +43,7 @@ export default function MyCareer() {
       <div className="relative">
 
         {/* 🌈 Animated Line */}
-        <motion.div
+        <div
           className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
           bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500
           origin-top blur-[1px]"
