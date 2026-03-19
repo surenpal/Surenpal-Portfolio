@@ -2,7 +2,6 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-
 export default function Hero() {
 
   const [btnStyle, setBtnStyle] = useState({});
@@ -16,13 +15,12 @@ export default function Hero() {
     },
   };
 
-  // 🔥 Apple-style reveal animation
+  // ✅ Fixed animation (no disappearing text)
   const item = {
-    hidden: { y: "100%", opacity: 0, filter: "blur(8px)" },
+    hidden: { y: 50, opacity: 0 },
     show: {
-      y: "0%",
+      y: 0,
       opacity: 1,
-      filter: "blur(0px)",
       transition: {
         duration: 0.8,
         ease: "easeOut",
@@ -47,8 +45,7 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-6
-      overflow-hidden
-      text-gray-900 dark:text-gray-100"
+      overflow-hidden text-gray-900 dark:text-gray-100"
     >
 
       {/* ✨ MAIN CONTENT */}
@@ -59,25 +56,26 @@ export default function Hero() {
         className="max-w-4xl mx-auto text-center flex flex-col items-center"
       >
 
-        {/* 🧠 Apple-style Text Reveal */}
-        <div className="overflow-hidden">
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
-            bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
-            bg-clip-text text-transparent"
-          >
-            {["Hi,", "I'm", "Suren Pal"].map((word, index) => (
-              <div key={index} className="overflow-hidden">
-                <motion.span
-                  variants={item}
-                  className="inline-block mr-4"
-                >
-                  {word}
-                </motion.span>
-              </div>
-            ))}
-          </motion.h1>
-        </div>
+        {/* 🧠 Text Reveal */}
+        <motion.h1
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6
+          bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
+          bg-clip-text text-transparent"
+        >
+          {["Hi,", "I'm", "Suren Pal"].map((word, index) => (
+            <span
+              key={index}
+              className="inline-block overflow-hidden mr-4"
+            >
+              <motion.span
+                variants={item}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
+        </motion.h1>
 
         {/* ⌨️ Typing Role */}
         <motion.div variants={item} transition={{ delay: 0.6 }}>

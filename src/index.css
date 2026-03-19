@@ -1,34 +1,5 @@
-/* Tailwind (keep only if using Tailwind v4) */
 @import "tailwindcss";
 
-/* =========================
-   Jump Letter Animation
-========================= */
-@keyframes jumpLetter {
-  0% {
-    transform: translateY(0);
-    filter: blur(0);
-  }
-  40% {
-    transform: translateY(-18px);
-    filter: blur(1px);
-    color: #facc15;
-  }
-  70% {
-    transform: translateY(-6px);
-    filter: blur(0.5px);
-  }
-  100% {
-    transform: translateY(0);
-    filter: blur(0);
-    color: #eab308;
-  }
-}
-
-.animate-jump {
-  animation-name: jumpLetter;
-  animation-fill-mode: both;
-}
 
 /* =========================
    Skill Card Border Effect
@@ -54,12 +25,6 @@
 
   background-size: 200% 200%;
   animation: borderMove 3s linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
 }
 
 @keyframes borderMove {
