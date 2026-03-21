@@ -1,5 +1,7 @@
 import MyCareer from "./MyCareer";
 import FadeInSection from "./FadeInSection";
+import AnimatedText from "./AnimatedText";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -9,48 +11,63 @@ export default function About() {
       className="min-h-screen flex items-center justify-center px-6 py-24
       text-gray-900 dark:text-gray-100"
     >
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
 
         <FadeInSection>
 
           {/* Intro */}
-          <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
+          >
             Get to know me
-          </p>
+          </motion.p>
 
           {/* Title */}
-          <h2
+          <motion.h2
             id="about-title"
-            className="text-4xl sm:text-5xl font-extrabold mb-4"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6"
           >
             About Me
-          </h2>
+          </motion.h2>
 
-          {/* Divider */}
-          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-8 rounded"></div>
+          {/* Animated Divider */}
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "4rem" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h-1 bg-yellow-500 mx-auto mb-10 rounded"
+          />
 
-          {/* Description */}
-          <div className="mb-16 max-w-xl sm:max-w-2xl mx-auto space-y-4 text-gray-600 dark:text-gray-300">
+          {/* Description (Word-by-word animation) */}
+          <div className="mb-20 max-w-xl sm:max-w-2xl mx-auto space-y-6 text-gray-600 dark:text-gray-300">
 
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              I am a <span className="text-yellow-500 font-semibold">React developer</span>
-              passionate about building
-              <span className="text-yellow-500 font-semibold"> modern, responsive web applications</span>.
-            </p>
+            <AnimatedText
+              text="I am a React developer passionate about building modern, responsive web applications."
+              className="text-base sm:text-lg md:text-xl leading-relaxed"
+            />
 
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              I enjoy simplifying
-              <span className="text-yellow-500 font-semibold"> complex problems</span>
-              and creating clean, scalable projects that deliver
-              <span className="text-yellow-500 font-semibold"> meaningful user experiences</span>.
-            </p>
+            <AnimatedText
+              text="I enjoy simplifying complex problems and creating clean, scalable projects that deliver meaningful user experiences."
+              className="text-base sm:text-lg md:text-xl leading-relaxed"
+            />
 
           </div>
 
           {/* Timeline */}
-          <div className="w-full mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full mt-16"
+          >
             <MyCareer />
-          </div>
+          </motion.div>
 
         </FadeInSection>
 
