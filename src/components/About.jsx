@@ -5,6 +5,7 @@ export default function About() {
   return (
     <section
       id="about"
+      aria-labelledby="about-title"
       className="min-h-screen flex items-center justify-center px-6 py-24
       text-gray-900 dark:text-gray-100"
     >
@@ -12,8 +13,16 @@ export default function About() {
 
         <FadeInSection>
 
-          {/* Section Title */}
-          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
+          {/* Intro */}
+          <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
+            Get to know me
+          </p>
+
+          {/* Title */}
+          <h2
+            id="about-title"
+            className="text-4xl sm:text-5xl font-extrabold mb-4"
+          >
             About Me
           </h2>
 
@@ -21,20 +30,29 @@ export default function About() {
           <div className="w-16 h-1 bg-yellow-500 mx-auto mb-8 rounded"></div>
 
           {/* Description */}
-          <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
-            I am a React developer passionate about building modern, responsive
-            web applications. I enjoy simplifying complex problems and creating
-            clean, scalable projects that provide meaningful user experiences.
-          </p>
+          <div className="mb-16 max-w-xl sm:max-w-2xl mx-auto space-y-4 text-gray-600 dark:text-gray-300">
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+              I am a <span className="text-yellow-500 font-semibold">React developer</span>
+              passionate about building
+              <span className="text-yellow-500 font-semibold"> modern, responsive web applications</span>.
+            </p>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
+              I enjoy simplifying
+              <span className="text-yellow-500 font-semibold"> complex problems</span>
+              and creating clean, scalable projects that deliver
+              <span className="text-yellow-500 font-semibold"> meaningful user experiences</span>.
+            </p>
+
+          </div>
+
+          {/* Timeline */}
+          <div className="w-full mt-16">
+            <MyCareer />
+          </div>
 
         </FadeInSection>
-
-        {/* Timeline */}
-        <div className="w-full">
-          <FadeInSection>
-            <MyCareer />
-          </FadeInSection>
-        </div>
 
       </div>
     </section>
