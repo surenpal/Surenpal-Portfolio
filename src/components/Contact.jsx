@@ -43,7 +43,6 @@ export default function Contact() {
     setErrors({});
     setLoading(true);
 
-    // Simulate API call
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
@@ -53,6 +52,12 @@ export default function Contact() {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+
+    // clear error while typing
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: "",
+    }));
   };
 
   return (
@@ -74,9 +79,9 @@ export default function Contact() {
           Feel free to reach out for collaboration or questions.
         </p>
 
-        {/* 💎 Glass Form */}
+        {/* 💎 Glass Form (border removed) */}
         <div className="backdrop-blur-xl bg-white/10 dark:bg-white/5
-        border border-white/20 rounded-2xl p-8 shadow-lg">
+        rounded-2xl p-8 shadow-xl shadow-black/10 dark:shadow-black/30">
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-10 text-left">
 
@@ -85,6 +90,7 @@ export default function Contact() {
               <div key={field} className="relative group">
 
                 <input
+                  id={field}
                   type={field === "email" ? "email" : "text"}
                   name={field}
                   value={form[field]}
@@ -95,12 +101,12 @@ export default function Contact() {
                   focus:outline-none transition"
                 />
 
-                {/* Animated underline */}
                 <span className="absolute left-0 bottom-0 w-0 h-[2px]
                 bg-yellow-500 transition-all duration-300
                 group-focus-within:w-full" />
 
                 <label
+                  htmlFor={field}
                   className="absolute left-0 top-2 text-gray-500 dark:text-gray-400
                   transition-all text-sm
                   peer-placeholder-shown:top-2
@@ -123,6 +129,7 @@ export default function Contact() {
             <div className="relative group">
 
               <textarea
+                id="message"
                 name="message"
                 rows="4"
                 value={form.message}
@@ -138,6 +145,7 @@ export default function Contact() {
               group-focus-within:w-full" />
 
               <label
+                htmlFor="message"
                 className="absolute left-0 top-2 text-gray-500 dark:text-gray-400
                 transition-all text-sm
                 peer-placeholder-shown:top-2
@@ -167,9 +175,11 @@ export default function Contact() {
             )}
 
             {/* BUTTON */}
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
               className="mt-4 px-6 py-3 rounded-xl
               bg-gray-800 dark:bg-gray-700 text-white font-semibold
               hover:bg-yellow-500 hover:text-black
@@ -182,7 +192,7 @@ export default function Contact() {
               ) : (
                 "Send Message"
               )}
-            </button>
+            </motion.button>
 
           </form>
         </div>
