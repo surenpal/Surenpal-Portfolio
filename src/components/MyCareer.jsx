@@ -56,9 +56,9 @@ export default function MyCareer() {
 
       <div className="relative">
 
-        {/* 🌈 Timeline line */}
+        {/* 🌈 Center Line (now always visible) */}
         <motion.div
-          className="hidden xs:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
+          className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
           bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 blur-[1px]"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -67,89 +67,79 @@ export default function MyCareer() {
         />
 
         <div className="space-y-14 sm:space-y-20">
-          {items.map((item, i) => {
-            const isLeft = i % 2 === 0;
+          {items.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}   // vertical animation (better for centered layout)
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="relative flex justify-center"
+            >
 
-            return (
+              {/* 💎 Card */}
               <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="relative flex items-center justify-center md:justify-between"
+                whileHover={{ scale: 1.03 }}
+                onClick={() =>
+                  setOpenIndex(openIndex === i ? null : i)
+                }
+                className="group relative w-full sm:w-[90%] md:w-[60%] lg:w-[45%]
+                backdrop-blur-xl
+                bg-gradient-to-br from-white/10 to-white/5
+                rounded-2xl p-4 xs:p-5 sm:p-8
+                shadow-xl shadow-black/10 dark:shadow-black/30
+                hover:-translate-y-2
+                hover:shadow-yellow-500/20
+                transition-all duration-300 cursor-pointer"
               >
 
-                {/* 💎 Card */}
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  onClick={() =>
-                    setOpenIndex(openIndex === i ? null : i)
-                  }
-                  className="group relative w-full md:w-[45%]
-                  backdrop-blur-xl
-                  bg-gradient-to-br from-white/10 to-white/5
-                  rounded-2xl p-4 xs:p-5 sm:p-8
-                  shadow-xl shadow-black/10 dark:shadow-black/30
-                  hover:-translate-y-2
-                  hover:shadow-yellow-500/20
-                  transition-all duration-300 cursor-pointer"
-                >
+                {/* Glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100
+                bg-gradient-to-r from-yellow-400/10 via-pink-400/10 to-purple-400/10
+                blur-xl transition" />
 
-                  {/* Glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100
-                  bg-gradient-to-r from-yellow-400/10 via-pink-400/10 to-purple-400/10
-                  blur-xl transition" />
-
-                  {/* Icon */}
-                  <div className="relative text-yellow-500 text-xl mb-2 z-10">
-                    {item.icon}
-                  </div>
-
-                  {/* Year */}
-                  <p className="relative text-yellow-500 font-semibold mb-1 z-10 text-sm sm:text-base">
-                    {item.year}
-                    {item.year === "Future" && (
-                      <span className="ml-2 text-xs bg-yellow-500 text-black px-2 py-0.5 rounded-full">
-                        Current
-                      </span>
-                    )}
-                  </p>
-
-                  {/* Title */}
-                  <h3 className="relative text-lg sm:text-xl md:text-2xl font-semibold mb-2 z-10
-                  group-hover:text-yellow-500 transition">
-                    {item.title}
-                  </h3>
-
-                  {/* Text (expandable on mobile) */}
-                  <p
-                    className={`relative text-gray-600 dark:text-gray-300 z-10 text-sm sm:text-base leading-relaxed
-                    ${openIndex === i ? "" : "line-clamp-2 sm:line-clamp-none"}`}
-                  >
-                    {item.text}
-                  </p>
-                </motion.div>
-
-                {/* Connector line (desktop only) */}
-                <div
-                  className={`hidden md:block absolute top-1/2 w-10 h-[2px] bg-yellow-500
-                  ${isLeft ? "left-[45%]" : "right-[45%]"}`}
-                />
-
-                {/* 🔥 Dot */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center">
-                  <span className="absolute w-10 h-10 bg-yellow-400/30 rounded-full animate-ping"></span>
-                  <div className="relative w-6 h-6 rounded-full
-                    bg-yellow-500
-                    border-4 border-white dark:border-gray-900
-                    shadow-[0_0_12px_rgba(234,179,8,0.8)]"
-                  />
+                {/* Icon */}
+                <div className="relative text-yellow-500 text-xl mb-2 z-10">
+                  {item.icon}
                 </div>
 
+                {/* Year */}
+                <p className="relative text-yellow-500 font-semibold mb-1 z-10 text-sm sm:text-base">
+                  {item.year}
+                  {item.year === "Future" && (
+                    <span className="ml-2 text-xs bg-yellow-500 text-black px-2 py-0.5 rounded-full">
+                      Current
+                    </span>
+                  )}
+                </p>
+
+                {/* Title */}
+                <h3 className="relative text-lg sm:text-xl md:text-2xl font-semibold mb-2 z-10
+                group-hover:text-yellow-500 transition">
+                  {item.title}
+                </h3>
+
+                {/* Text */}
+                <p
+                  className={`relative text-gray-600 dark:text-gray-300 z-10 text-sm sm:text-base leading-relaxed
+                  ${openIndex === i ? "" : "line-clamp-2 sm:line-clamp-none"}`}
+                >
+                  {item.text}
+                </p>
               </motion.div>
-            );
-          })}
+
+              {/* 🔥 Center Dot (always aligned) */}
+              <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+                <span className="absolute w-10 h-10 bg-yellow-400/30 rounded-full animate-ping"></span>
+                <div className="relative w-6 h-6 rounded-full
+                  bg-yellow-500
+                  border-4 border-white dark:border-gray-900
+                  shadow-[0_0_12px_rgba(234,179,8,0.8)]"
+                />
+              </div>
+
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
