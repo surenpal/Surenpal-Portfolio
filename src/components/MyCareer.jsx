@@ -56,7 +56,7 @@ export default function MyCareer() {
 
       <div className="relative">
 
-        {/* 🌈 Center Line (now always visible) */}
+        {/* 🌈 Center Line */}
         <motion.div
           className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
           bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 blur-[1px]"
@@ -70,20 +70,20 @@ export default function MyCareer() {
           {items.map((item, i) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}   // vertical animation (better for centered layout)
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
               className="relative flex justify-center"
             >
 
-              {/* 💎 Card */}
+              {/* 💎 Card (WIDER on large screens) */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 onClick={() =>
                   setOpenIndex(openIndex === i ? null : i)
                 }
-                className="group relative w-full sm:w-[90%] md:w-[60%] lg:w-[45%]
+                className="group relative w-full sm:w-[90%] md:w-[65%] lg:w-[70%] max-w-3xl
                 backdrop-blur-xl
                 bg-gradient-to-br from-white/10 to-white/5
                 rounded-2xl p-4 xs:p-5 sm:p-8
@@ -128,7 +128,7 @@ export default function MyCareer() {
                 </p>
               </motion.div>
 
-              {/* 🔥 Center Dot (always aligned) */}
+              {/* 🔥 Center Dot */}
               <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
                 <span className="absolute w-10 h-10 bg-yellow-400/30 rounded-full animate-ping"></span>
                 <div className="relative w-6 h-6 rounded-full
