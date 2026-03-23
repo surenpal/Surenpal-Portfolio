@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8" />
 
@@ -10,17 +9,29 @@
   <!-- ✅ Theme color (mobile browser UI) -->
   <meta name="theme-color" content="#111827" />
 
-  <!-- ✅ Prevent theme flash (dark mode fix) -->
+  <!-- ✅ FIXED: Prevent theme flash + sync with React -->
   <script>
-    const theme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    (function () {
+      const stored = localStorage.getItem("theme");
+      const theme = stored || "system";
 
-    if (theme === "dark" || (theme === "system" && systemDark) || (!theme && systemDark)) {
-      document.documentElement.classList.add("dark");
-    }
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const root = document.documentElement;
+
+      if (theme === "dark") {
+        root.classList.add("dark");
+      } else if (theme === "light") {
+        root.classList.remove("dark");
+      } else {
+        // system
+        if (media.matches) {
+          root.classList.add("dark");
+        }
+      }
+    })();
   </script>
 
-  <!-- ✅ Google Fonts (clean + optimized) -->
+  <!-- ✅ Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet"
@@ -39,5 +50,4 @@
   <script type="module" src="/src/main.jsx"></script>
 
 </body>
-
 </html>
