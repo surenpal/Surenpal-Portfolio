@@ -12,7 +12,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // 🔥 Optimized scroll handling
+  // Scroll effect
   useEffect(() => {
     let ticking = false;
 
@@ -26,7 +26,6 @@ export default function Navbar({ theme, toggleTheme }) {
             document.documentElement.clientHeight;
 
           setScrollProgress((window.scrollY / total) * 100);
-
           ticking = false;
         });
         ticking = true;
@@ -37,7 +36,7 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔥 Scroll Spy
+  // Scroll spy
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -56,12 +55,11 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => observer.disconnect();
   }, []);
 
-  // 🔥 Prevent background scroll on mobile menu
+  // Lock scroll on mobile menu
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
-  // 🔥 Smooth scroll with offset
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -80,14 +78,13 @@ export default function Navbar({ theme, toggleTheme }) {
           : "bg-transparent"
       }`}
     >
-      {/* 🔥 Scroll Progress Bar */}
+      {/* Progress bar */}
       <div
         className="fixed top-0 left-0 h-[2px] bg-yellow-500 z-50"
         style={{ width: `${scrollProgress}%` }}
       />
 
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
-        
         {/* Logo */}
         <button
           onClick={() => handleScrollTo("hero")}
@@ -98,127 +95,81 @@ export default function Navbar({ theme, toggleTheme }) {
           Portfolio
         </button>
 
-        {/* Desktop Nav */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10 font-semibold text-gray-700 dark:text-gray-300">
           {navItems.map((item) => (
             <button
               key={item}
               onClick={() => handleScrollTo(item)}
-              className={`relative group capitalize transition
+              className={`relative group capitalize
               ${active === item ? "text-yellow-500" : ""}
               hover:text-yellow-500`}
             >
               {item}
-
-              {/* ✨ underline */}
               <span
-                className={`absolute left-0 -bottom-1 h-[2px] bg-yellow-500 transition-all duration-300
-                ${
-                  active === item
-                    ? "w-full"
-                    : "w-0 group-hover:w-full"
-                }`}
+                className={`absolute left-0 -bottom-1 h-[2px] bg-yellow-500 transition-all
+                ${active === item ? "w-full" : "w-0 group-hover:w-full"}`}
               />
             </button>
           ))}
         </div>
 
-        {/* Right side */}
+        {/* Right */}
         <div className="flex items-center gap-4">
-          
-          {/* 🌗 Theme Toggle */}
+          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            aria-label="Toggle theme"
             className="p-2 rounded-full
             text-gray-700 dark:text-gray-300
-            hover:bg-black/5 dark:hover:bg-white/10
-            hover:scale-110 transition-all duration-300"
+            hover:bg-black/5 dark:hover:bg-white/10"
           >
             <AnimatePresence mode="wait">
               {theme === "light" ? (
-                <motion.span
-                  key="moon"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <motion.span key="moon">
                   <FiMoon size={20} />
                 </motion.span>
               ) : theme === "dark" ? (
-                <motion.span
-                  key="sun"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <motion.span key="sun">
                   <FiSun size={20} />
                 </motion.span>
               ) : (
-                <motion.span
-                  key="system"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  💻
-                </motion.span>
+                <motion.span key="system">💻</motion.span>
               )}
             </AnimatePresence>
           </button>
 
-          {/* 🍔 Hamburger */}
-          <button
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-            className="md:hidden relative w-6 h-6"
-          >
+          {/* Hamburger */}
+          <button onClick={toggleMenu} className="md:hidden w-6 h-6 relative">
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white
               ${menuOpen ? "rotate-45 top-3" : "top-1"}`}
             />
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white
               ${menuOpen ? "opacity-0" : "top-3"}`}
             />
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white
               ${menuOpen ? "-rotate-45 top-3" : "top-5"}`}
             />
           </button>
         </div>
       </div>
 
-      {/* 📱 Mobile Menu */}
+      {/* Mobile menu */}
       <div
         className={`md:hidden absolute top-20 left-0 w-full
         bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl
-        transition-all duration-300
-        ${
-          menuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+        ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <div className="flex flex-col items-center gap-6 py-6 font-semibold text-gray-700 dark:text-gray-300">
+        <div className="flex flex-col items-center gap-6 py-6">
           {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleScrollTo(item)}
-              className="capitalize hover:text-yellow-500 transition"
-            >
+            <button key={item} onClick={() => handleScrollTo(item)}>
               {item}
             </button>
           ))}
         </div>
       </div>
-
-      {/* ✨ Bottom glow line */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px]
-      bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent" />
     </nav>
   );
 }

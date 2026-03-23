@@ -11,45 +11,49 @@ import CursorGlow from "./components/CursorGlow";
 export default function App() {
   const [theme, setTheme] = useState("system");
 
-  // 🔥 Load saved theme
+  // ✅ Load saved theme
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     if (saved) setTheme(saved);
   }, []);
 
-  // 🔥 Toggle: light → dark → system
+  // ✅ Toggle: light → dark → system
   const toggleTheme = () => {
     setTheme((prev) =>
       prev === "light" ? "dark" : prev === "dark" ? "system" : "light"
     );
   };
 
-  // 🔥 Apply theme + listen to system changes
+  // ✅ Apply theme properly
   useEffect(() => {
     const root = document.documentElement;
     const media = window.matchMedia("(prefers-color-scheme: dark)");
 
     const applyTheme = () => {
-      const systemDark = media.matches;
-
-      const finalTheme =
-        theme === "system" ? (systemDark ? "dark" : "light") : theme;
-
-      root.classList.toggle("dark", finalTheme === "dark");
+      if (theme === "dark") {
+        root.classList.add("dark");
+      } else if (theme === "light") {
+        root.classList.remove("dark");
+      } else {
+        root.classList.toggle("dark", media.matches);
+      }
     };
 
     applyTheme();
 
-    // ✅ Listen ONLY in system mode
+    // listen only in system mode
     if (theme === "system") {
       media.addEventListener("change", applyTheme);
     }
 
-    localStorage.setItem("theme", theme);
-
     return () => {
       media.removeEventListener("change", applyTheme);
     };
+  }, [theme]);
+
+  // ✅ Persist theme
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
@@ -58,17 +62,15 @@ export default function App() {
       bg-[#fafafa] text-gray-800
       dark:bg-gray-900 dark:text-gray-100"
     >
-      {/* 🧲 Cursor Glow */}
       <CursorGlow />
 
-      {/* 🌈 GLOBAL LAYERS */}
+      {/* Background layers */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-
-        {/* Light gradient */}
+        {/* Light */}
         <div className="block dark:hidden absolute inset-0
           bg-[radial-gradient(circle_at_20%_20%,rgba(255,200,0,0.08),transparent)]" />
 
-        {/* Dark gradient */}
+        {/* Dark */}
         <div className="hidden dark:block absolute inset-0
           bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.12),transparent)]" />
 
@@ -87,41 +89,25 @@ export default function App() {
         bg-purple-400/10 blur-[120px] rounded-full" />
       </div>
 
-      {/* 🌟 MAIN CONTENT */}
+      {/* Content */}
       <div className="relative z-10">
         <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         <Hero />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <About />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <Skills />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <Projects />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <Contact />
         </motion.div>
       </div>
