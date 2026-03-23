@@ -9,27 +9,47 @@ import { motion } from "framer-motion";
 import CursorGlow from "./components/CursorGlow";
 
 export default function App() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "system";
-  });
+  const [theme, setTheme] = useState("system");
 
+  // 🔥 Load saved theme
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved) setTheme(saved);
+  }, []);
+
+  // 🔥 Toggle: light → dark → system
   const toggleTheme = () => {
     setTheme((prev) =>
       prev === "light" ? "dark" : prev === "dark" ? "system" : "light"
     );
   };
 
+  // 🔥 Apply theme + listen to system changes
   useEffect(() => {
     const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const applyTheme = () => {
+      const systemDark = media.matches;
 
-    const finalTheme =
-      theme === "system" ? (systemDark ? "dark" : "light") : theme;
+      const finalTheme =
+        theme === "system" ? (systemDark ? "dark" : "light") : theme;
 
-    root.classList.toggle("dark", finalTheme === "dark");
+      root.classList.toggle("dark", finalTheme === "dark");
+    };
+
+    applyTheme();
+
+    // ✅ Listen ONLY in system mode
+    if (theme === "system") {
+      media.addEventListener("change", applyTheme);
+    }
 
     localStorage.setItem("theme", theme);
+
+    return () => {
+      media.removeEventListener("change", applyTheme);
+    };
   }, [theme]);
 
   return (
@@ -44,7 +64,6 @@ export default function App() {
       {/* 🌈 GLOBAL LAYERS */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
 
-        {/* ✅ FIX: Move gradient here */}
         {/* Light gradient */}
         <div className="block dark:hidden absolute inset-0
           bg-[radial-gradient(circle_at_20%_20%,rgba(255,200,0,0.08),transparent)]" />
@@ -74,19 +93,35 @@ export default function App() {
 
         <Hero />
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <About />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Skills />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Projects />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Contact />
         </motion.div>
       </div>
