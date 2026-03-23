@@ -11,7 +11,7 @@ import CursorGlow from "./components/CursorGlow";
 export default function App() {
   const [theme, setTheme] = useState("system");
 
-  // ✅ Load saved theme
+  // ✅ Load saved theme (safe)
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     if (saved) setTheme(saved);
@@ -24,12 +24,14 @@ export default function App() {
     );
   };
 
-  // ✅ Apply theme properly
+  // ✅ Apply theme (FIXED: stable listener + cleanup)
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const root = document.documentElement;
     const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const applyTheme = () => {
+    function applyTheme() {
       if (theme === "dark") {
         root.classList.add("dark");
       } else if (theme === "light") {
@@ -37,11 +39,10 @@ export default function App() {
       } else {
         root.classList.toggle("dark", media.matches);
       }
-    };
+    }
 
     applyTheme();
 
-    // listen only in system mode
     if (theme === "system") {
       media.addEventListener("change", applyTheme);
     }
@@ -51,7 +52,7 @@ export default function App() {
     };
   }, [theme]);
 
-  // ✅ Persist theme
+  // ✅ Persist theme (separate effect)
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -67,26 +68,36 @@ export default function App() {
       {/* Background layers */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         {/* Light */}
-        <div className="block dark:hidden absolute inset-0
-          bg-[radial-gradient(circle_at_20%_20%,rgba(255,200,0,0.08),transparent)]" />
+        <div
+          className="block dark:hidden absolute inset-0
+          bg-[radial-gradient(circle_at_20%_20%,rgba(255,200,0,0.08),transparent)]"
+        />
 
         {/* Dark */}
-        <div className="hidden dark:block absolute inset-0
-          bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.12),transparent)]" />
+        <div
+          className="hidden dark:block absolute inset-0
+          bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.12),transparent)]"
+        />
 
         {/* Glow blobs */}
-        <div className="absolute top-[-10%] left-[-10%]
-        w-[420px] h-[420px]
-        bg-yellow-400/10 blur-[140px] rounded-full" />
+        <div
+          className="absolute top-[-10%] left-[-10%]
+          w-[420px] h-[420px]
+          bg-yellow-400/10 blur-[140px] rounded-full"
+        />
 
-        <div className="absolute bottom-[-10%] right-[-10%]
-        w-[420px] h-[420px]
-        bg-pink-400/10 blur-[140px] rounded-full" />
+        <div
+          className="absolute bottom-[-10%] right-[-10%]
+          w-[420px] h-[420px]
+          bg-pink-400/10 blur-[140px] rounded-full"
+        />
 
-        <div className="absolute top-[40%] left-[50%]
-        -translate-x-1/2 -translate-y-1/2
-        w-[320px] h-[320px]
-        bg-purple-400/10 blur-[120px] rounded-full" />
+        <div
+          className="absolute top-[40%] left-[50%]
+          -translate-x-1/2 -translate-y-1/2
+          w-[320px] h-[320px]
+          bg-purple-400/10 blur-[120px] rounded-full"
+        />
       </div>
 
       {/* Content */}
@@ -95,19 +106,35 @@ export default function App() {
 
         <Hero />
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <About />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Skills />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Projects />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <Contact />
         </motion.div>
       </div>
