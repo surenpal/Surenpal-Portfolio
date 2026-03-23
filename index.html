@@ -3,18 +3,41 @@
 
 <head>
   <meta charset="UTF-8" />
+
+  <!-- ✅ Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?
-family=Inter:wght@300;400;600&
-family=Poppins:wght@400;600;700&
-family=Playfair+Display:wght@400;700&
-display=swap" rel="stylesheet">
+
+  <!-- ✅ Theme color (mobile browser UI) -->
+  <meta name="theme-color" content="#111827" />
+
+  <!-- ✅ Prevent theme flash (dark mode fix) -->
+  <script>
+    const theme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (theme === "dark" || (theme === "system" && systemDark) || (!theme && systemDark)) {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+
+  <!-- ✅ Google Fonts (clean + optimized) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ✅ Title -->
   <title>SurenPal</title>
 </head>
 
-<body>
+<body class="bg-[#fafafa] dark:bg-gray-900 transition-colors duration-500">
+
+  <!-- ✅ React Root -->
   <div id="root"></div>
+
+  <!-- ✅ App Entry -->
   <script type="module" src="/src/main.jsx"></script>
+
 </body>
 
 </html>
