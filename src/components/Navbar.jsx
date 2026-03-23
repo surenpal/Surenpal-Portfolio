@@ -64,6 +64,8 @@ export default function Navbar({ theme, toggleTheme }) {
   // 🔥 Smooth scroll with offset
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
+    if (!el) return;
+
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top: y, behavior: "smooth" });
     setMenuOpen(false);
@@ -85,6 +87,7 @@ export default function Navbar({ theme, toggleTheme }) {
       />
 
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
+        
         {/* Logo */}
         <button
           onClick={() => handleScrollTo("hero")}
@@ -107,10 +110,14 @@ export default function Navbar({ theme, toggleTheme }) {
             >
               {item}
 
-              {/* underline */}
+              {/* ✨ underline */}
               <span
                 className={`absolute left-0 -bottom-1 h-[2px] bg-yellow-500 transition-all duration-300
-                ${active === item ? "w-full" : "w-0 group-hover:w-full"}`}
+                ${
+                  active === item
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                }`}
               />
             </button>
           ))}
@@ -118,7 +125,8 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Right side */}
         <div className="flex items-center gap-4">
-          {/* Theme Toggle */}
+          
+          {/* 🌗 Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -134,45 +142,57 @@ export default function Navbar({ theme, toggleTheme }) {
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <FiMoon size={20} />
                 </motion.span>
-              ) : (
+              ) : theme === "dark" ? (
                 <motion.span
                   key="sun"
                   initial={{ rotate: 90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <FiSun size={20} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="system"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  💻
                 </motion.span>
               )}
             </AnimatePresence>
           </button>
 
-          {/* Hamburger */}
+          {/* 🍔 Hamburger */}
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
             className="md:hidden relative w-6 h-6"
           >
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all
+              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "rotate-45 top-3" : "top-1"}`}
             />
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all
+              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "opacity-0" : "top-3"}`}
             />
             <span
-              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all
+              className={`absolute h-[2px] w-6 bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "-rotate-45 top-3" : "top-5"}`}
             />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* 📱 Mobile Menu */}
       <div
         className={`md:hidden absolute top-20 left-0 w-full
         bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl
@@ -196,7 +216,7 @@ export default function Navbar({ theme, toggleTheme }) {
         </div>
       </div>
 
-      {/* bottom glow */}
+      {/* ✨ Bottom glow line */}
       <div className="absolute bottom-0 left-0 w-full h-[1px]
       bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent" />
     </nav>
