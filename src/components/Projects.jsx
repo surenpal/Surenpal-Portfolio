@@ -5,7 +5,7 @@ import dateTimeImg from "../assets/date-time-app.png";
 import ecommerceImg from "../assets/e-commerce.png";
 import loginImg from "../assets/login-page.png";
 import myCalculatorImg from "../assets/my-calculater.png";
-import japaneseLearningAppImg from "../assets/japanese-learning-app.png";
+import JapaneseLearningAppImg from "../assets/JapaneseLearningApp.jpg";
 
 export default function Projects() {
   return (
@@ -28,7 +28,7 @@ export default function Projects() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
             <ProjectCard
-              imgSrc={japaneseLearningAppImg}
+              imgSrc={JapaneseLearningAppImg}
               title="Nihongo Master"
               description="A clean weather app built with React and Tailwind."
               url="https://japanese-learning-app-uabb.vercel.app/"
@@ -55,12 +55,6 @@ export default function Projects() {
               url="https://datetimeappsuren.vercel.app"
             />
 
-            <ProjectCard
-              imgSrc={loginImg}
-              title="Login Form"
-              description="Login form built with React and Tailwind."
-              url="https://loginformreacttailwind.vercel.app/"
-            />
 
             <ProjectCard
               imgSrc={myCalculatorImg}
@@ -68,6 +62,16 @@ export default function Projects() {
               description="Full calculator built with React and Tailwind."
               url="https://mycalculatersuren.vercel.app/"
             />
+
+
+            <ProjectCard
+              imgSrc={loginImg}
+              title="Login Form"
+              description="Login form built with React and Tailwind."
+              url="https://loginformreacttailwind.vercel.app/"
+            />
+
+          
 
           </div>
         </div>
