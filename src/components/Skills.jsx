@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import FadeInSection from "./FadeInSection";
 import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiGithub } from "react-icons/si";

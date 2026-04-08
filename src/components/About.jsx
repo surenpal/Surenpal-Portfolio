@@ -1,7 +1,7 @@
 import MyCareer from "./MyCareer";
 import FadeInSection from "./FadeInSection";
 import AnimatedText from "./AnimatedText";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function About() {
   return (

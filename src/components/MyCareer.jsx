@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaCode, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 export default function MyCareer() {

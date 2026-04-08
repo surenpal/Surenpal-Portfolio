@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 
 export default function Hero() {
