@@ -19,7 +19,5 @@ export default function FadeInSection({ children }) {
     >
       {children}
     </motion.div>
-
-    
   );
 }

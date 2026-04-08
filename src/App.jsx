@@ -5,17 +5,12 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
 import CursorGlow from "./components/CursorGlow";
 
 export default function App() {
-  const [theme, setTheme] = useState("system");
-
-  // ✅ Load saved theme (safe)
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) setTheme(saved);
-  }, []);
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "system"
+  );
 
   // ✅ Toggle: light → dark → system
   const toggleTheme = () => {
@@ -106,37 +101,10 @@ export default function App() {
 
         <Hero />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <About />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Skills />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Projects />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Contact />
-        </motion.div>
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
       </div>
     </div>
   );
