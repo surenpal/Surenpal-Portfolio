@@ -30,28 +30,31 @@ export default function Projects() {
             <ProjectCard
               imgSrc={JapaneseLearningAppImg}
               title="Nihongo Master"
-              description="A clean weather app built with React and Tailwind."
+              description="This is a Japanese learning app built with Typescript and Next.js. It features flashcards, quizzes, and a spaced repetition system to help users learn and retain Japanese vocabulary effectively."
               url="https://japanese-learning-app-uabb.vercel.app/"
             />
 
             <ProjectCard
               imgSrc={ecommerceImg}
               title="E-Commerce App"
-              description="Undergoing e-commerce app built with React, Tailwind and useContext."
+              description="This is an e-commerce app built with React, Tailwind and useContext.
+              It features product listing, shopping cart, and a simple checkout process."
               url="https://mela-shopping-e-commerce.vercel.app"
             />
 
             <ProjectCard
               imgSrc={weatherImg}
               title="Weather App"
-              description="A clean weather app built with React and Tailwind."
+              description="A clean weather app built with React and Tailwind.
+              It fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface."
               url="https://weatherappsuren.vercel.app/"
             />
 
             <ProjectCard
               imgSrc={dateTimeImg}
               title="Date Time App"
-              description="A clean date-time app built with React and Tailwind."
+              description="A clean date-time app built with React and Tailwind.
+              It displays the current date and time, and allows users to set alarms and timers."
               url="https://datetimeappsuren.vercel.app"
             />
 
@@ -59,7 +62,8 @@ export default function Projects() {
             <ProjectCard
               imgSrc={myCalculatorImg}
               title="My Calculator"
-              description="Full calculator built with React and Tailwind."
+              description="Full calculator built with React and Tailwind.
+              It supports basic arithmetic operations, percentage calculations, and has a responsive design for both desktop and mobile devices."
               url="https://mycalculatersuren.vercel.app/"
             />
 
@@ -67,7 +71,8 @@ export default function Projects() {
             <ProjectCard
               imgSrc={loginImg}
               title="Login Form"
-              description="Login form built with React and Tailwind."
+              description="Login form built with React and Tailwind.
+              It includes form validation, error handling, and a responsive design for both desktop and mobile devices."
               url="https://loginformreacttailwind.vercel.app/"
             />
 
