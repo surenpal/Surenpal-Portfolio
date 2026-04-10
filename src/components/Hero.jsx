@@ -2,7 +2,6 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-im
 
 export default function Hero() {
 

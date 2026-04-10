@@ -13,16 +13,18 @@ const stats = [
 
 export default function About() {
   const [flipped, setFlipped] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-flip every 5s when not hovered (SP → photo → SP cycle every 10s)
+  // Show photo when About section is in view, revert to SP when scrolled away
   useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setFlipped((prev) => !prev);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+    const section = document.getElementById("about");
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setFlipped(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -76,13 +78,11 @@ export default function About() {
               {/* Avatar — flip card */}
               <div className="relative" style={{ perspective: "1000px" }}>
                 <div
-                  className="relative w-44 h-44 transition-transform duration-700 cursor-pointer"
+                  className="relative w-44 h-44 transition-transform duration-700"
                   style={{
                     transformStyle: "preserve-3d",
                     transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
                   }}
-                  onMouseEnter={() => { setIsHovered(true); setFlipped(true); }}
-                  onMouseLeave={() => { setIsHovered(false); setFlipped(false); }}
                 >
                   {/* Front — SP initials */}
                   <div
