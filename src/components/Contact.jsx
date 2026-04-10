@@ -24,7 +24,7 @@ const info = [
   {
     icon: <FiMapPin size={16} />,
     label: "Location",
-    value: "Nagoya, Japan",
+    value: "Tokyo, Japan",
   },
   {
     icon: <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />,
