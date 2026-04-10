@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 
 const stats = [
   { value: "5+", label: "Years Learning" },
-  { value: "10+", label: "Projects Built" },
-  { value: "2", label: "Languages" },
+  { value: "7+", label: "Projects Built" },
+  { value: "3", label: "Languages" },
 ];
 
 export default function About() {
