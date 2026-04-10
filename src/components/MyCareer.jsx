@@ -1,145 +1,199 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { FaCode, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
-export default function MyCareer() {
-  const [openIndex, setOpenIndex] = useState(null);
+const items = [
+  {
+    id: 1,
+    year: "2019",
+    title: "Japanese Language School",
+    text: "Learned Japanese language and culture at Nagoya Fukutoku Nihongo Gakuin.",
+    icon: <FaGraduationCap />,
+    tags: ["Japanese", "Communication", "Culture"],
+  },
+  {
+    id: 2,
+    year: "2021",
+    title: "2 Years IT College Degree",
+    text: "Completed a two-year IT course at Nagoya Future Technology College.",
+    icon: <FaGraduationCap />,
+    tags: ["IT Fundamentals", "Programming", "Networking"],
+  },
+  {
+    id: 3,
+    year: "2022",
+    title: "Sales & Marketing Role",
+    text: "Developed strong communication, negotiation, and leadership skills working in sales.",
+    icon: <FaBriefcase />,
+    tags: ["Leadership", "Communication", "Teamwork"],
+  },
+  {
+    id: 4,
+    year: "2023",
+    title: "Junior Frontend Developer",
+    text: "Started building modern web applications with React, Tailwind CSS, and JavaScript.",
+    icon: <FaCode />,
+    tags: ["React", "Tailwind CSS", "JavaScript"],
+  },
+  {
+    id: 5,
+    year: "2024+",
+    title: "Journey to Full Stack Developer",
+    text: "Working toward becoming a skilled Full Stack Developer with Node.js and databases.",
+    icon: <FaCode />,
+    tags: ["Node.js", "Databases", "Full Stack"],
+    isCurrent: true,
+  },
+];
 
-  const items = [
-    {
-      id: 1,
-      year: "2019",
-      title: "Japanese Language School",
-      text: "Learned Japanese language and culture at Nagoya Fukutoku Nihongo Gakuin.",
-      icon: <FaGraduationCap />,
-    },
-    {
-      id: 2,
-      year: "2021",
-      title: "2 Years IT College Degree",
-      text: "Completed a two-year IT course at Nagoya Future Technology College.",
-      icon: <FaGraduationCap />,
-    },
-    {
-      id: 3,
-      year: "2022",
-      title: "Sales Manager",
-      text: "Developed strong communication and leadership skills.",
-      icon: <FaBriefcase />,
-    },
-    {
-      id: 4,
-      year: "2023",
-      title: "React Developer Journey",
-      text: "Started building modern web applications and learner-friendly resources.",
-      icon: <FaCode />,
-    },
-    {
-      id: 5,
-      year: "Future",
-      title: "Full Stack Developer",
-      text: "Working toward becoming a skilled Full Stack Developer.",
-      icon: <FaCode />,
-    },
-  ];
-
+function Card({ item }) {
   return (
-    <section className="w-full py-16 sm:py-20 px-3 xs:px-4 sm:px-6">
+    <motion.div
+      whileHover={{ scale: 1.02, y: -4 }}
+      className="group relative backdrop-blur-xl
+        bg-white/60 dark:bg-white/5
+        border border-gray-200/60 dark:border-white/10
+        rounded-2xl p-5 sm:p-6
+        shadow-lg shadow-black/5 dark:shadow-black/20
+        hover:border-yellow-500/40 hover:shadow-yellow-500/10
+        transition-all duration-300"
+    >
+      {/* Hover glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-2xl
+        bg-gradient-to-br from-yellow-400/5 via-pink-400/5 to-purple-400/5
+        transition-opacity duration-300" />
+
+      <div className="relative z-10">
+        {/* Icon + Year */}
+        <div className="flex items-center justify-between mb-3">
+          <span className="w-9 h-9 rounded-lg bg-yellow-500/10 text-yellow-500
+            flex items-center justify-center text-sm">
+            {item.icon}
+          </span>
+          <span className={`text-xs font-bold px-3 py-1 rounded-full
+            ${item.isCurrent
+              ? "bg-yellow-500 text-black"
+              : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400"
+            }`}>
+            {item.year}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base sm:text-lg font-bold mb-1.5
+          group-hover:text-yellow-500 transition-colors">
+          {item.title}
+        </h3>
+
+        {/* Text */}
+        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-3">
+          {item.text}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {item.tags.map((tag) => (
+            <span key={tag} className="text-xs px-2 py-0.5 rounded-full
+              bg-gray-100 dark:bg-white/10
+              text-gray-600 dark:text-gray-400">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function Dot() {
+  return (
+    <div className="relative flex items-center justify-center">
+      <span className="absolute w-10 h-10 bg-yellow-400/20 rounded-full animate-ping" />
+      <div className="relative z-10 w-5 h-5 rounded-full bg-yellow-500
+        border-4 border-white dark:border-gray-900
+        shadow-[0_0_12px_rgba(234,179,8,0.8)]" />
+    </div>
+  );
+}
+
+export default function MyCareer() {
+  return (
+    <section className="w-full py-16 sm:py-20 px-4 sm:px-6">
 
       {/* Title */}
-      <div className="text-center mb-14 sm:mb-20">
-        <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold">
-          Career Timeline
-        </h2>
-        <div className="w-12 sm:w-16 h-1 bg-yellow-500 mx-auto mt-3 sm:mt-4 rounded"></div>
+      <div className="text-center mb-16">
+        <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+          My Journey
+        </p>
+        <h2 className="text-3xl sm:text-5xl font-extrabold">Career Timeline</h2>
+        <div className="w-16 h-1 bg-yellow-500 mx-auto mt-4 rounded" />
       </div>
 
-      <div className="relative">
+      <div className="relative max-w-4xl mx-auto">
 
-        {/* 🌈 Center Line */}
+        {/* Desktop center line */}
         <motion.div
-          className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px]
-          bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500 blur-[1px]"
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px]
+            bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
+          style={{ originY: 0 }}
         />
 
-        <div className="space-y-14 sm:space-y-20">
-          {items.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="relative flex justify-center"
-            >
+        {/* Mobile left line */}
+        <motion.div
+          className="md:hidden absolute left-5 top-0 bottom-0 w-[2px]
+            bg-gradient-to-b from-yellow-400 via-pink-500 to-purple-500"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          style={{ originY: 0 }}
+        />
 
-              {/* 💎 Card (WIDER on large screens) */}
+        <div className="space-y-10 md:space-y-14">
+          {items.map((item, i) => {
+            const isLeft = i % 2 === 0;
+            return (
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                onClick={() =>
-                  setOpenIndex(openIndex === i ? null : i)
-                }
-                className="group relative w-full sm:w-[90%] md:w-[65%] lg:w-[70%] max-w-3xl
-                backdrop-blur-xl
-                bg-gradient-to-br from-white/10 to-white/5
-                rounded-2xl p-4 xs:p-5 sm:p-8
-                shadow-xl shadow-black/10 dark:shadow-black/30
-                hover:-translate-y-2
-                hover:shadow-yellow-500/20
-                transition-all duration-300 cursor-pointer"
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
+                {/* Desktop — alternating */}
+                <div
+                  className="hidden md:grid items-center gap-0"
+                  style={{ gridTemplateColumns: "1fr 56px 1fr" }}
+                >
+                  <div className="pr-6 flex justify-end">
+                    {isLeft && <div className="w-full max-w-sm"><Card item={item} /></div>}
+                  </div>
 
-                {/* Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100
-                bg-gradient-to-r from-yellow-400/10 via-pink-400/10 to-purple-400/10
-                blur-xl transition" />
+                  <div className="flex justify-center">
+                    <Dot />
+                  </div>
 
-                {/* Icon */}
-                <div className="relative text-yellow-500 text-xl mb-2 z-10">
-                  {item.icon}
+                  <div className="pl-6">
+                    {!isLeft && <div className="w-full max-w-sm"><Card item={item} /></div>}
+                  </div>
                 </div>
 
-                {/* Year */}
-                <p className="relative text-yellow-500 font-semibold mb-1 z-10 text-sm sm:text-base">
-                  {item.year}
-                  {item.year === "Future" && (
-                    <span className="ml-2 text-xs bg-yellow-500 text-black px-2 py-0.5 rounded-full">
-                      Current
-                    </span>
-                  )}
-                </p>
+                {/* Mobile — single column */}
+                <div className="md:hidden relative pl-12">
+                  <div className="absolute left-5 top-5 -translate-x-1/2">
+                    <div className="w-4 h-4 rounded-full bg-yellow-500
+                      border-[3px] border-white dark:border-gray-900
+                      shadow-[0_0_8px_rgba(234,179,8,0.8)]" />
+                  </div>
+                  <Card item={item} />
+                </div>
 
-                {/* Title */}
-                <h3 className="relative text-lg sm:text-xl md:text-2xl font-semibold mb-2 z-10
-                group-hover:text-yellow-500 transition">
-                  {item.title}
-                </h3>
-
-                {/* Text */}
-                <p
-                  className={`relative text-gray-600 dark:text-gray-300 z-10 text-sm sm:text-base leading-relaxed
-                  ${openIndex === i ? "" : "line-clamp-2 sm:line-clamp-none"}`}
-                >
-                  {item.text}
-                </p>
               </motion.div>
-
-              {/* 🔥 Center Dot */}
-              <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-                <span className="absolute w-10 h-10 bg-yellow-400/30 rounded-full animate-ping"></span>
-                <div className="relative w-6 h-6 rounded-full
-                  bg-yellow-500
-                  border-4 border-white dark:border-gray-900
-                  shadow-[0_0_12px_rgba(234,179,8,0.8)]"
-                />
-              </div>
-
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
