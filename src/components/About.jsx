@@ -3,7 +3,7 @@ import MyCareer from "./MyCareer";
 import FadeInSection from "./FadeInSection";
 import AnimatedText from "./AnimatedText";
 import { motion } from "motion/react";
-import profileImg from "../assets/profile.jpg";
+import profileImg from "../assets/profile.JPG";
 
 const stats = [
   { value: "5+", label: "Years Learning" },
@@ -20,7 +20,7 @@ export default function About() {
     if (!section) return;
     const observer = new IntersectionObserver(
       ([entry]) => setFlipped(entry.isIntersecting),
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     observer.observe(section);
     return () => observer.disconnect();
