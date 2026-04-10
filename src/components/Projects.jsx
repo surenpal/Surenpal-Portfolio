@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import ProjectCard from "./ProjectCard";
 import FadeInSection from "./FadeInSection";
 import weatherImg from "../assets/weather-app.png";
@@ -7,78 +8,109 @@ import loginImg from "../assets/login-page.png";
 import myCalculatorImg from "../assets/my-calculater.png";
 import JapaneseLearningAppImg from "../assets/JapaneseLearningApp.jpg";
 
+const projects = [
+  {
+    imgSrc: JapaneseLearningAppImg,
+    title: "Nihongo Master",
+    description: "A Japanese learning app built with TypeScript and Next.js. Features flashcards, quizzes, and a spaced repetition system to help users learn and retain Japanese vocabulary effectively.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    url: "https://japanese-learning-app-uabb.vercel.app/",
+    github: "https://github.com/surenpal",
+    featured: true,
+  },
+  {
+    imgSrc: ecommerceImg,
+    title: "E-Commerce App",
+    description: "An e-commerce app built with React, Tailwind, and useContext. Features product listing, shopping cart, and a simple checkout process.",
+    tags: ["React", "Tailwind", "Context API"],
+    url: "https://mela-shopping-e-commerce.vercel.app",
+    github: "https://github.com/surenpal",
+  },
+  {
+    imgSrc: weatherImg,
+    title: "Weather App",
+    description: "A clean weather app built with React and Tailwind. Fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface.",
+    tags: ["React", "Tailwind", "REST API"],
+    url: "https://weatherappsuren.vercel.app/",
+    github: "https://github.com/surenpal",
+  },
+  {
+    imgSrc: dateTimeImg,
+    title: "Date Time App",
+    description: "A clean date-time app built with React and Tailwind. Displays the current date and time, and allows users to set alarms and timers.",
+    tags: ["React", "Tailwind"],
+    url: "https://datetimeappsuren.vercel.app",
+    github: "https://github.com/surenpal",
+  },
+  {
+    imgSrc: myCalculatorImg,
+    title: "My Calculator",
+    description: "A full-featured calculator built with React and Tailwind. Supports basic arithmetic operations, percentage calculations, and has a responsive design.",
+    tags: ["React", "Tailwind"],
+    url: "https://mycalculatersuren.vercel.app/",
+    github: "https://github.com/surenpal",
+  },
+  {
+    imgSrc: loginImg,
+    title: "Login Form",
+    description: "A login form built with React and Tailwind. Includes form validation, error handling, and a responsive design for both desktop and mobile.",
+    tags: ["React", "Tailwind", "Form Validation"],
+    url: "https://loginformreacttailwind.vercel.app/",
+    github: "https://github.com/surenpal",
+  },
+];
+
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center pb-24 px-6
+      className="min-h-screen flex items-center justify-center pb-24 px-6 py-24
       text-gray-900 dark:text-gray-100"
     >
       <FadeInSection>
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
 
-          {/* Title */}
-          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
+          {/* Header */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
+          >
+            What I've built
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-extrabold mb-4"
+          >
             Projects
-          </h2>
+          </motion.h2>
 
-          <div className="w-16 h-1 bg-yellow-500 mx-auto mb-12 rounded"></div>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "4rem" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h-1 bg-yellow-500 mx-auto mb-14 rounded"
+          />
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-            <ProjectCard
-              imgSrc={JapaneseLearningAppImg}
-              title="Nihongo Master"
-              description="This is a Japanese learning app built with Typescript and Next.js. It features flashcards, quizzes, and a spaced repetition system to help users learn and retain Japanese vocabulary effectively."
-              url="https://japanese-learning-app-uabb.vercel.app/"
-            />
-
-            <ProjectCard
-              imgSrc={ecommerceImg}
-              title="E-Commerce App"
-              description="This is an e-commerce app built with React, Tailwind and useContext.
-              It features product listing, shopping cart, and a simple checkout process."
-              url="https://mela-shopping-e-commerce.vercel.app"
-            />
-
-            <ProjectCard
-              imgSrc={weatherImg}
-              title="Weather App"
-              description="A clean weather app built with React and Tailwind.
-              It fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface."
-              url="https://weatherappsuren.vercel.app/"
-            />
-
-            <ProjectCard
-              imgSrc={dateTimeImg}
-              title="Date Time App"
-              description="A clean date-time app built with React and Tailwind.
-              It displays the current date and time, and allows users to set alarms and timers."
-              url="https://datetimeappsuren.vercel.app"
-            />
-
-
-            <ProjectCard
-              imgSrc={myCalculatorImg}
-              title="My Calculator"
-              description="Full calculator built with React and Tailwind.
-              It supports basic arithmetic operations, percentage calculations, and has a responsive design for both desktop and mobile devices."
-              url="https://mycalculatersuren.vercel.app/"
-            />
-
-
-            <ProjectCard
-              imgSrc={loginImg}
-              title="Login Form"
-              description="Login form built with React and Tailwind.
-              It includes form validation, error handling, and a responsive design for both desktop and mobile devices."
-              url="https://loginformreacttailwind.vercel.app/"
-            />
-
-          
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                viewport={{ once: true }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
           </div>
+
         </div>
       </FadeInSection>
     </section>
