@@ -89,9 +89,7 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Logo */}
         <button
           onClick={() => handleScrollTo("hero")}
-          className="text-xl font-black tracking-tight
-            bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500
-            bg-clip-text text-transparent"
+          className={`text-xl font-black tracking-tight ${theme === "light" ? "text-black" : "text-white"}`}
         >
           SP
         </button>
