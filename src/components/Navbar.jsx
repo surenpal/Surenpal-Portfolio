@@ -89,20 +89,11 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Logo */}
         <button
           onClick={() => handleScrollTo("hero")}
-          className="flex items-center gap-2.5"
-        >
-          {/* SP Badge */}
-          <span className="w-9 h-9 rounded-lg flex items-center justify-center
+          className="text-xl font-black tracking-tight
             bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500
-            text-white text-sm font-black tracking-tight shadow-md">
-            SP
-          </span>
-          {/* Portfolio text */}
-          <span className="text-xl font-extrabold tracking-wide
-            bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
-            bg-clip-text text-transparent hidden sm:block">
-            Portfolio
-          </span>
+            bg-clip-text text-transparent"
+        >
+          SP
         </button>
 
         {/* Desktop nav */}

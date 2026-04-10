@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import FadeInSection from "./FadeInSection";
 import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiGithub, SiNodedotjs } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 const categories = [
   {
@@ -26,7 +27,8 @@ const categories = [
   {
     label: "Tools",
     skills: [
-      { name: "GitHub", level: 65, label: "Intermediate", icon: <SiGithub /> },
+      { name: "GitHub",   level: 65, label: "Intermediate", icon: <SiGithub /> },
+      { name: "VS Code",  level: 80, label: "Advanced",     icon: <VscVscode /> },
     ],
   },
 ];
