@@ -48,12 +48,8 @@ export default function About() {
           <div className="mb-20 max-w-xl sm:max-w-2xl mx-auto space-y-6 text-gray-600 dark:text-gray-300">
 
             <AnimatedText
-              text="I am a React developer passionate about building modern, responsive web applications."
-              className="text-base sm:text-lg md:text-xl leading-relaxed"
-            />
-
-            <AnimatedText
-              text="I enjoy simplifying complex problems and creating clean, scalable projects that deliver meaningful user experiences."
+              text="I am a Junior Frontend developer passionate about building modern, responsive web applications that deliver seamless user experiences. I enjoy breaking down complex problems into simple, elegant solutions, 
+              and I focus on creating clean, scalable code that drives real value. With a strong commitment to continuous learning and improvement, I strive to turn ideas into intuitive and high-quality digital products."
               className="text-base sm:text-lg md:text-xl leading-relaxed"
             />
 

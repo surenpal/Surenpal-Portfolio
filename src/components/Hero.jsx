@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
 
@@ -95,26 +96,80 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* 🧲 Magnetic Button */}
-        <motion.a
+        {/* 📝 Tagline */}
+        <motion.p
           variants={item}
-          href="#projects"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={reset}
-          whileTap={{ scale: 0.95 }}
-          style={btnStyle}
-          className="mt-10 px-8 py-3
-          bg-yellow-500 text-white
-          rounded-xl
-          shadow-md
-          hover:bg-yellow-600
-          hover:shadow-yellow-500/40
-          transition-all duration-300 inline-block"
+          className="mt-6 max-w-xl text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed"
         >
-          View Projects
-        </motion.a>
+          I build fast, accessible, and visually polished web experiences —
+          from pixel-perfect UIs to scalable backends.
+        </motion.p>
+
+        {/* 🔗 Social Links */}
+        <motion.div variants={item} className="flex items-center gap-5 mt-8">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition text-2xl"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition text-2xl"
+          >
+            <FaLinkedin />
+          </a>
+        </motion.div>
+
+        {/* 🧲 CTA Buttons */}
+        <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <motion.a
+            href="#projects"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={reset}
+            whileTap={{ scale: 0.95 }}
+            style={btnStyle}
+            className="px-8 py-3 bg-yellow-500 text-white rounded-xl shadow-md
+            hover:bg-yellow-600 hover:shadow-yellow-500/40
+            transition-all duration-300 inline-block font-semibold"
+          >
+            View Projects
+          </motion.a>
+          <motion.a
+            href="#contact"
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            className="px-8 py-3 rounded-xl border border-gray-300 dark:border-gray-600
+            text-gray-700 dark:text-gray-300
+            hover:border-yellow-500 hover:text-yellow-500 dark:hover:text-yellow-400
+            transition-all duration-300 inline-block font-semibold"
+          >
+            Contact Me
+          </motion.a>
+        </motion.div>
 
       </motion.div>
+
+      {/* ⬇️ Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 dark:text-gray-600"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.8, duration: 0.6 }}
+      >
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <motion.div
+          className="w-[1px] h-8 bg-gray-300 dark:bg-gray-700"
+          animate={{ scaleY: [0, 1, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+          style={{ originY: 0 }}
+        />
+      </motion.div>
+
     </section>
   );
 }
