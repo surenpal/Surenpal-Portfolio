@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { FiMonitor } from "react-icons/fi";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function Navbar({ theme, toggleTheme }) {
@@ -88,11 +89,20 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Logo */}
         <button
           onClick={() => handleScrollTo("hero")}
-          className="text-3xl font-extrabold tracking-wide
-          bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
-          bg-clip-text text-transparent"
+          className="flex items-center gap-2.5"
         >
-          Portfolio
+          {/* SP Badge */}
+          <span className="w-9 h-9 rounded-lg flex items-center justify-center
+            bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500
+            text-white text-sm font-black tracking-tight shadow-md">
+            SP
+          </span>
+          {/* Portfolio text */}
+          <span className="text-xl font-extrabold tracking-wide
+            bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
+            bg-clip-text text-transparent hidden sm:block">
+            Portfolio
+          </span>
         </button>
 
         {/* Desktop nav */}
@@ -101,22 +111,39 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               key={item}
               onClick={() => handleScrollTo(item)}
-              className={`relative group capitalize
-              ${active === item ? "text-yellow-500" : ""}
-              hover:text-yellow-500`}
+              className={`relative capitalize hover:text-yellow-500 transition-colors
+              ${active === item ? "text-yellow-500" : ""}`}
             >
               {item}
-              <span
-                className={`absolute left-0 -bottom-1 h-[2px] bg-yellow-500 transition-all
-                ${active === item ? "w-full" : "w-0 group-hover:w-full"}`}
-              />
+              {/* 4. Sliding active indicator with layoutId */}
+              {active === item && (
+                <motion.span
+                  layoutId="underline"
+                  className="absolute left-0 -bottom-1 h-[2px] w-full bg-yellow-500 rounded"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
             </button>
           ))}
         </div>
 
         {/* Right */}
         <div className="flex items-center gap-4">
-          {/* Theme toggle */}
+
+          {/* 3. Resume button */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:inline-block px-4 py-1.5 rounded-lg text-sm font-semibold
+            border border-yellow-500 text-yellow-500
+            hover:bg-yellow-500 hover:text-white
+            transition-all duration-200"
+          >
+            Resume
+          </a>
+
+          {/* 1. Theme toggle — fixed animation */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full
@@ -125,15 +152,38 @@ export default function Navbar({ theme, toggleTheme }) {
           >
             <AnimatePresence mode="wait">
               {theme === "light" ? (
-                <motion.span key="moon">
+                <motion.span
+                  key="moon"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
                   <FiMoon size={20} />
                 </motion.span>
               ) : theme === "dark" ? (
-                <motion.span key="sun">
+                <motion.span
+                  key="sun"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
                   <FiSun size={20} />
                 </motion.span>
               ) : (
-                <motion.span key="system">💻</motion.span>
+                <motion.span
+                  key="system"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  <FiMonitor size={20} />
+                </motion.span>
               )}
             </AnimatePresence>
           </button>
@@ -141,35 +191,59 @@ export default function Navbar({ theme, toggleTheme }) {
           {/* Hamburger */}
           <button onClick={toggleMenu} className="md:hidden w-6 h-6 relative">
             <span
-              className={`absolute w-6 h-[2px] bg-black dark:bg-white
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "rotate-45 top-3" : "top-1"}`}
             />
             <span
-              className={`absolute w-6 h-[2px] bg-black dark:bg-white
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "opacity-0" : "top-3"}`}
             />
             <span
-              className={`absolute w-6 h-[2px] bg-black dark:bg-white
+              className={`absolute w-6 h-[2px] bg-black dark:bg-white transition-all duration-300
               ${menuOpen ? "-rotate-45 top-3" : "top-5"}`}
             />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden absolute top-20 left-0 w-full
-        bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl
-        ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
-        <div className="flex flex-col items-center gap-6 py-6">
-          {navItems.map((item) => (
-            <button key={item} onClick={() => handleScrollTo(item)}>
-              {item}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* 2. Mobile menu — AnimatePresence slide-down */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden
+            bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl"
+          >
+            <div className="flex flex-col items-center gap-6 py-8">
+              {navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleScrollTo(item)}
+                  className={`capitalize font-semibold text-lg transition-colors
+                  ${active === item ? "text-yellow-500" : "text-gray-700 dark:text-gray-300"}
+                  hover:text-yellow-500`}
+                >
+                  {item}
+                </button>
+              ))}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-2 rounded-lg text-sm font-semibold
+                border border-yellow-500 text-yellow-500
+                hover:bg-yellow-500 hover:text-white transition-all duration-200"
+              >
+                Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
