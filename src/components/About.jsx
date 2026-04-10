@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import MyCareer from "./MyCareer";
 import FadeInSection from "./FadeInSection";
 import AnimatedText from "./AnimatedText";
 import { motion } from "motion/react";
+import profileImg from "../assets/profile.jpg";
 
 const stats = [
   { value: "5+", label: "Years Learning" },
@@ -10,6 +12,18 @@ const stats = [
 ];
 
 export default function About() {
+  const [flipped, setFlipped] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-flip every 5s when not hovered (SP → photo → SP cycle every 10s)
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setFlipped((prev) => !prev);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
   return (
     <section
       id="about"
@@ -59,24 +73,53 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="flex flex-col items-center gap-8"
             >
-              {/* Avatar */}
-              <div className="relative">
-                <div className="w-44 h-44 rounded-full
-                  bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500 p-[3px]
-                  shadow-xl shadow-pink-500/20">
-                  <div className="w-full h-full rounded-full
-                    bg-gray-100 dark:bg-gray-800
-                    flex items-center justify-center">
-                    <span className="text-5xl font-black
-                      bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500
-                      bg-clip-text text-transparent">
-                      SP
-                    </span>
+              {/* Avatar — flip card */}
+              <div className="relative" style={{ perspective: "1000px" }}>
+                <div
+                  className="relative w-44 h-44 transition-transform duration-700 cursor-pointer"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                  }}
+                  onMouseEnter={() => { setIsHovered(true); setFlipped(true); }}
+                  onMouseLeave={() => { setIsHovered(false); setFlipped(false); }}
+                >
+                  {/* Front — SP initials */}
+                  <div
+                    className="absolute inset-0 rounded-full
+                      bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500 p-[3px]
+                      shadow-xl shadow-pink-500/20"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <div className="w-full h-full rounded-full
+                      bg-gray-100 dark:bg-gray-800
+                      flex items-center justify-center">
+                      <span className="text-5xl font-black
+                        bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500
+                        bg-clip-text text-transparent">
+                        SP
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Back — Photo */}
+                  <div
+                    className="absolute inset-0 rounded-full
+                      bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-500 p-[3px]
+                      shadow-xl shadow-pink-500/20"
+                    style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+                  >
+                    <img
+                      src={profileImg}
+                      alt="Suren Pal"
+                      className="w-full h-full rounded-full object-cover"
+                    />
                   </div>
                 </div>
+
                 {/* Online dot */}
                 <span className="absolute bottom-3 right-3 w-5 h-5 bg-green-400
-                  rounded-full border-4 border-white dark:border-gray-900 shadow-md" />
+                  rounded-full border-4 border-white dark:border-gray-900 shadow-md z-10" />
               </div>
 
               {/* Stats */}
