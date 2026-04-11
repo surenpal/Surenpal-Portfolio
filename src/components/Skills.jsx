@@ -8,27 +8,27 @@ const categories = [
   {
     label: "Frontend",
     skills: [
-      { name: "HTML",       level: 80, label: "Advanced",     icon: <FaHtml5 /> },
-      { name: "CSS",        level: 80, label: "Advanced",     icon: <FaCss3Alt /> },
-      { name: "JavaScript", level: 70, label: "Intermediate", icon: <FaJs /> },
-      { name: "React",      level: 60, label: "Intermediate", icon: <FaReact /> },
-      { name: "Tailwind",   level: 75, label: "Intermediate", icon: <SiTailwindcss /> },
+      { name: "HTML",       level: 80, label: "Advanced",     icon: <FaHtml5 />,      color: "#e34f26" },
+      { name: "CSS",        level: 80, label: "Advanced",     icon: <FaCss3Alt />,    color: "#1572b6" },
+      { name: "JavaScript", level: 70, label: "Intermediate", icon: <FaJs />,         color: "#f7df1e" },
+      { name: "React",      level: 60, label: "Intermediate", icon: <FaReact />,      color: "#61dafb" },
+      { name: "Tailwind",   level: 75, label: "Intermediate", icon: <SiTailwindcss />,color: "#06b6d4" },
     ],
   },
   {
     label: "Backend & DB",
     skills: [
-      { name: "Node.js",  level: 40, label: "Beginner",     icon: <SiNodedotjs />, learning: true },
-      { name: "MongoDB",  level: 45, label: "Beginner",     icon: <SiMongodb />,   learning: true },
-      { name: "Python",   level: 50, label: "Beginner",     icon: <FaPython /> },
-      { name: "Java",     level: 50, label: "Beginner",     icon: <FaJava /> },
+      { name: "Node.js",  level: 40, label: "Beginner",     icon: <SiNodedotjs />, learning: true, color: "#339933" },
+      { name: "MongoDB",  level: 45, label: "Beginner",     icon: <SiMongodb />,   learning: true, color: "#47a248" },
+      { name: "Python",   level: 50, label: "Beginner",     icon: <FaPython />,    color: "#3776ab" },
+      { name: "Java",     level: 50, label: "Beginner",     icon: <FaJava />,      color: "#f89820" },
     ],
   },
   {
     label: "Tools",
     skills: [
-      { name: "GitHub",   level: 65, label: "Intermediate", icon: <SiGithub /> },
-      { name: "VS Code",  level: 80, label: "Advanced",     icon: <VscVscode /> },
+      { name: "GitHub",   level: 65, label: "Intermediate", icon: <SiGithub />,  color: "#ffffff" },
+      { name: "VS Code",  level: 80, label: "Advanced",     icon: <VscVscode />, color: "#007acc" },
     ],
   },
 ];
@@ -76,7 +76,7 @@ function SkillCard({ skill, i }) {
       )}
 
       {/* Icon */}
-      <div className="relative text-3xl text-yellow-500 mb-4 z-10">
+      <div className="relative text-3xl mb-4 z-10" style={{ color: skill.color }}>
         {skill.icon}
       </div>
 
