@@ -31,7 +31,7 @@ const projects = [
     title: "Weather App",
     description: "A clean weather app built with React and Tailwind. Fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface.",
     tags: ["React", "Tailwind", "REST API"],
-    url: "https://weatherappsuren.vercel.app/",
+    url: "weatherappsuren.vercel.app",
     github: "https://github.com/surenpal",
   },
   {

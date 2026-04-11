@@ -5,9 +5,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMail, FiMapPin, FiCopy, FiCheck, FiSend } from "react-icons/fi";
 
 // ── Replace these with your EmailJS credentials ──────────────────────────────
-const SERVICE_ID  = "YOUR_SERVICE_ID";
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const SERVICE_ID  = "service_01vctup";
+const TEMPLATE_ID = "template_xjo0bae";
+const PUBLIC_KEY  = "S_SSqHYhPJcqObC8g";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const EMAIL    = "surenpal@email.com";       // ← your email
