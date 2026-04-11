@@ -12,7 +12,7 @@ const PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
 
 const EMAIL    = "surenpal@email.com";       // ← your email
 const GITHUB   = "https://github.com/surenpal";     // ← your GitHub
-const LINKEDIN = "https://linkedin.com/in/surenpal"; // ← your LinkedIn
+const LINKEDIN = "https://www.linkedin.com/in/surendra-jirel-592b8a397/"; // ← your LinkedIn
 
 const info = [
   {

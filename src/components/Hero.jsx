@@ -116,7 +116,7 @@ export default function Hero() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/surendra-jirel-592b8a397/"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition text-2xl"
