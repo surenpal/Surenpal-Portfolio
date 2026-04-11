@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import ProjectCard from "./ProjectCard";
 import FadeInSection from "./FadeInSection";
-import weatherImg from "../assets/weather-app.png";
-import dateTimeImg from "../assets/date-time-app.png";
+import weatherImg from "../assets/skycast.png";
+import dateTimeImg from "../assets/Calender.png";
 import ecommerceImg from "../assets/e-commerce.png";
 import loginImg from "../assets/login-page.png";
-import myCalculatorImg from "../assets/my-calculater.png";
+import myCalculatorImg from "../assets/Calculator.png";
 import JapaneseLearningAppImg from "../assets/JapaneseLearningApp.jpg";
 
 const projects = [
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     imgSrc: weatherImg,
-    title: "Weather App",
+    title: "SkyCast",
     description: "A clean weather app built with React and Tailwind. Fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface.",
     tags: ["React", "Tailwind", "REST API"],
     url: "https://weatherappsuren.vercel.app/",
@@ -36,7 +36,7 @@ const projects = [
   },
   {
     imgSrc: dateTimeImg,
-    title: "Date Time App",
+    title: "Calendar",
     description: "A clean date-time app built with React and Tailwind. Displays the current date and time, and allows users to set alarms and timers.",
     tags: ["React", "Tailwind"],
     url: "https://datetimeappsuren.vercel.app",
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     imgSrc: myCalculatorImg,
-    title: "My Calculator",
+    title: "Calculator",
     description: "A full-featured calculator built with React and Tailwind. Supports basic arithmetic operations, percentage calculations, and has a responsive design.",
     tags: ["React", "Tailwind"],
     url: "https://mycalculatersuren.vercel.app/",
