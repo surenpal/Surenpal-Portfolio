@@ -82,11 +82,11 @@ export default function Hero() {
         <motion.div variants={item} transition={{ delay: 0.6 }}>
           <TypeAnimation
             sequence={[
-              "React Developer",
+              "Junior Developer",
               2000,
               "Full Stack Developer",
               2000,
-              "Fast Learner",
+              "Good Learner",
               2000,
             ]}
             wrapper="span"
