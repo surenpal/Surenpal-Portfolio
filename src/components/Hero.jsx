@@ -84,7 +84,7 @@ export default function Hero() {
             sequence={[
               "Junior Developer",
               2000,
-              "Full Stack Developer",
+              "Learning Full-Stack",
               2000,
               "Good Learner",
               2000,
