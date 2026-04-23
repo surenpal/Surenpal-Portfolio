@@ -108,7 +108,7 @@ export default function Hero() {
         {/* 🔗 Social Links */}
         <motion.div variants={item} className="flex items-center gap-5 mt-8">
           <a
-            href="https://github.com"
+            href="https://github.com/surenpal"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition text-2xl"

@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMail, FiMapPin, FiCopy, FiCheck, FiSend } from "react-icons/fi";
 
-// ── Replace these with your EmailJS credentials ──────────────────────────────
-const SERVICE_ID  = "service_01vctup";
-const TEMPLATE_ID = "template_xjo0bae";
-const PUBLIC_KEY  = "S_SSqHYhPJcqObC8g";
-// ─────────────────────────────────────────────────────────────────────────────
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const EMAIL    = "surenpal@email.com";       // ← your email
 const GITHUB   = "https://github.com/surenpal";     // ← your GitHub

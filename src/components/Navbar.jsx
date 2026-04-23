@@ -129,7 +129,7 @@ export default function Navbar({ theme, toggleTheme }) {
             hover:bg-yellow-500 hover:text-white
             transition-all duration-200"
           >
-            Resume
+            職務経歴書
           </a>
 
           {/* 1. Theme toggle — fixed animation */}
