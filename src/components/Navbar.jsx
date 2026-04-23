@@ -227,7 +227,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 border border-yellow-500 text-yellow-500
                 hover:bg-yellow-500 hover:text-white transition-all duration-200"
               >
-                Resume
+                職務経歴書
               </a>
             </div>
           </motion.div>
