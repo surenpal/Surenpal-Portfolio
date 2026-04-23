@@ -6,37 +6,37 @@ import { VscVscode } from "react-icons/vsc";
 
 const categories = [
   {
-    label: "Frontend",
+    label: "フロントエンド",
     skills: [
-      { name: "HTML",       level: 80, label: "Advanced",     icon: <FaHtml5 />,      color: "#e34f26" },
-      { name: "CSS",        level: 80, label: "Advanced",     icon: <FaCss3Alt />,    color: "#1572b6" },
-      { name: "JavaScript", level: 70, label: "Intermediate", icon: <FaJs />,         color: "#f7df1e" },
-      { name: "React",      level: 60, label: "Intermediate", icon: <FaReact />,      color: "#61dafb" },
-      { name: "Tailwind",   level: 75, label: "Intermediate", icon: <SiTailwindcss />,color: "#06b6d4" },
+      { name: "HTML",       level: 80, label: "上級",   icon: <FaHtml5 />,      color: "#e34f26" },
+      { name: "CSS",        level: 80, label: "上級",   icon: <FaCss3Alt />,    color: "#1572b6" },
+      { name: "JavaScript", level: 70, label: "中級", icon: <FaJs />,         color: "#f7df1e" },
+      { name: "React",      level: 60, label: "中級", icon: <FaReact />,      color: "#61dafb" },
+      { name: "Tailwind",   level: 75, label: "中級", icon: <SiTailwindcss />,color: "#06b6d4" },
     ],
   },
   {
-    label: "Backend & DB",
+    label: "バックエンド & DB",
     skills: [
-      { name: "Node.js",  level: 40, label: "Beginner",     icon: <SiNodedotjs />, learning: true, color: "#339933" },
-      { name: "MongoDB",  level: 45, label: "Beginner",     icon: <SiMongodb />,   learning: true, color: "#47a248" },
-      { name: "Python",   level: 50, label: "Beginner",     icon: <FaPython />,    color: "#3776ab" },
-      { name: "Java",     level: 50, label: "Beginner",     icon: <FaJava />,      color: "#f89820" },
+      { name: "Node.js",  level: 40, label: "初級", icon: <SiNodedotjs />, learning: true, color: "#339933" },
+      { name: "MongoDB",  level: 45, label: "初級", icon: <SiMongodb />,   learning: true, color: "#47a248" },
+      { name: "Python",   level: 50, label: "初級", icon: <FaPython />,    color: "#3776ab" },
+      { name: "Java",     level: 50, label: "初級", icon: <FaJava />,      color: "#f89820" },
     ],
   },
   {
-    label: "Tools",
+    label: "ツール",
     skills: [
-      { name: "GitHub",   level: 65, label: "Intermediate", icon: <SiGithub />,  color: "#ffffff" },
-      { name: "VS Code",  level: 80, label: "Advanced",     icon: <VscVscode />, color: "#007acc" },
+      { name: "GitHub",   level: 65, label: "中級", icon: <SiGithub />,  color: "#ffffff" },
+      { name: "VS Code",  level: 80, label: "上級", icon: <VscVscode />, color: "#007acc" },
     ],
   },
 ];
 
 const levelColor = {
-  Beginner:     "text-blue-400",
-  Intermediate: "text-yellow-500",
-  Advanced:     "text-green-400",
+  初級: "text-blue-400",
+  中級: "text-yellow-500",
+  上級: "text-green-400",
 };
 
 function SkillCard({ skill, i }) {
@@ -71,7 +71,7 @@ function SkillCard({ skill, i }) {
       {skill.learning && (
         <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5
           rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
-          Learning
+          学習中
         </span>
       )}
 
@@ -145,7 +145,7 @@ export default function Skills() {
             transition={{ duration: 0.4 }}
             className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
           >
-            What I work with
+            使用技術
           </motion.p>
 
           <motion.h2
@@ -154,7 +154,7 @@ export default function Skills() {
             transition={{ duration: 0.6 }}
             className="text-4xl sm:text-5xl font-extrabold mb-4"
           >
-            Skills
+            スキル
           </motion.h2>
 
           <motion.div
@@ -202,16 +202,16 @@ export default function Skills() {
             className="flex items-center justify-center gap-6 mt-14 text-xs text-gray-500 dark:text-gray-400"
           >
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-green-400" /> Advanced
+              <span className="w-2 h-2 rounded-full bg-green-400" /> 上級
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-yellow-500" /> Intermediate
+              <span className="w-2 h-2 rounded-full bg-yellow-500" /> 中級
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-blue-400" /> Beginner
+              <span className="w-2 h-2 rounded-full bg-blue-400" /> 初級
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-purple-400" /> Learning
+              <span className="w-2 h-2 rounded-full bg-purple-400" /> 学習中
             </span>
           </motion.div>
 

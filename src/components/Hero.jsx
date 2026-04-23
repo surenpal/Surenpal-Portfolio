@@ -63,7 +63,7 @@ export default function Hero() {
           bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500
           bg-clip-text text-transparent"
         >
-          {["Hi,", "I'm", "Suren Pal"].map((word, index) => (
+          {["こんにちは、", "私は", "Suren Pal"].map((word, index) => (
             <span
               key={index}
               className="inline-block overflow-hidden mr-4"
@@ -84,9 +84,9 @@ export default function Hero() {
             sequence={[
               "Junior Developer",
               2000,
-              "Learning Full-Stack",
+              "FullStack を学習中",
               2000,
-              "Good Learner",
+              "学ぶ姿勢・継続力",
               2000,
             ]}
             wrapper="span"
@@ -101,8 +101,8 @@ export default function Hero() {
           variants={item}
           className="mt-6 max-w-xl text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed"
         >
-          I build fast, accessible, and visually polished web experiences —
-          from pixel-perfect UIs to scalable backends.
+          高速でアクセシブルな、洗練されたWebアプリケーションを開発します —
+          ピクセル精度のUIからスケーラブルなバックエンドまで。
         </motion.p>
 
         {/* 🔗 Social Links */}
@@ -137,7 +137,7 @@ export default function Hero() {
             hover:bg-yellow-600 hover:shadow-yellow-500/40
             transition-all duration-300 inline-block font-semibold"
           >
-            View Projects
+            開発物
           </motion.a>
           <motion.a
             href="#contact"
@@ -148,7 +148,7 @@ export default function Hero() {
             hover:border-yellow-500 hover:text-yellow-500 dark:hover:text-yellow-400
             transition-all duration-300 inline-block font-semibold"
           >
-            Contact Me
+            お問い合わせ
           </motion.a>
         </motion.div>
 
@@ -161,7 +161,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8, duration: 0.6 }}
       >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-xs tracking-widest uppercase">スクロール</span>
         <motion.div
           className="w-[1px] h-8 bg-gray-300 dark:bg-gray-700"
           animate={{ scaleY: [0, 1, 0] }}

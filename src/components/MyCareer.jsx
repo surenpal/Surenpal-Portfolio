@@ -5,42 +5,42 @@ const items = [
   {
     id: 1,
     year: "2019",
-    title: "Japanese Language School",
-    text: "Learned Japanese language and culture at Nagoya Fukutoku Nihongo Gakuin.",
+    title: "日本語学校",
+    text: "名古屋福徳日本語学院で日本語と文化を学びました。",
     icon: <FaGraduationCap />,
-    tags: ["Japanese", "Communication", "Culture"],
+    tags: ["日本語", "コミュニケーション", "文化"],
   },
   {
     id: 2,
     year: "2021",
-    title: "2 Years IT College Degree",
-    text: "Completed a two-year IT course at Nagoya Future Technology College.",
+    title: "ITカレッジ2年課程修了",
+    text: "名古屋未来テクノロジー専門学校にてITの2年間のコースを修了しました。",
     icon: <FaGraduationCap />,
-    tags: ["IT Fundamentals", "Programming", "Networking"],
+    tags: ["IT基礎", "プログラミング", "ネットワーキング"],
   },
   {
     id: 3,
     year: "2022",
-    title: "Sales & Marketing Role",
-    text: "Developed strong communication, negotiation, and leadership skills working in sales.",
+    title: "営業・マーケティング",
+    text: "営業職において、コミュニケーション・交渉・リーダーシップスキルを磨きました。",
     icon: <FaBriefcase />,
-    tags: ["Leadership", "Communication", "Teamwork"],
+    tags: ["リーダーシップ", "コミュニケーション", "チームワーク"],
   },
   {
     id: 4,
     year: "2023",
-    title: "Junior Frontend Developer",
-    text: "Started building modern web applications with React, Tailwind CSS, and JavaScript.",
+    title: "Junior　フロントエンド　開発者",
+    text: "React、Tailwind CSS、JavaScriptを使用してモダンなWebアプリケーションの構築を開始しました。",
     icon: <FaCode />,
     tags: ["React", "Tailwind CSS", "JavaScript"],
   },
   {
     id: 5,
     year: "2024+",
-    title: "Journey to Full Stack Developer",
-    text: "Working toward becoming a skilled Full Stack Developer with Node.js and databases.",
+    title: "フルスタック開発者への道",
+    text: "Node.jsとデータベースを活用したフルスタック開発者を目指して学習中です。",
     icon: <FaCode />,
-    tags: ["Node.js", "Databases", "Full Stack"],
+    tags: ["Node.js", "データベース", "フルスタック"],
     isCurrent: true,
   },
 ];
@@ -122,9 +122,9 @@ export default function MyCareer() {
       {/* Title */}
       <div className="text-center mb-16">
         <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
-          My Journey
+          私の歩み
         </p>
-        <h2 className="text-3xl sm:text-5xl font-extrabold">Career Timeline</h2>
+        <h2 className="text-3xl sm:text-5xl font-extrabold">キャリアタイムライン</h2>
         <div className="w-16 h-1 bg-yellow-500 mx-auto mt-4 rounded" />
       </div>
 

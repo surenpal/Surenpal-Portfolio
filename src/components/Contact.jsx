@@ -15,19 +15,19 @@ const LINKEDIN = "https://www.linkedin.com/in/surendra-jirel-592b8a397/"; // ←
 const info = [
   {
     icon: <FiMail size={16} />,
-    label: "Email",
+    label: "メール",
     value: EMAIL,
     copyable: true,
   },
   {
     icon: <FiMapPin size={16} />,
-    label: "Location",
+    label: "所在地",
     value: "Tokyo, Japan",
   },
   {
     icon: <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />,
-    label: "Status",
-    value: "Open to opportunities",
+    label: "ステータス",
+    value: "機会を探しています",
   },
 ];
 
@@ -41,10 +41,10 @@ export default function Contact() {
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim())    e.name    = "Name is required";
-    if (!form.email.trim())   e.email   = "Email is required";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = "Invalid email";
-    if (!form.message.trim()) e.message = "Message is required";
+    if (!form.name.trim())    e.name    = "お名前を入力してください";
+    if (!form.email.trim())   e.email   = "メールアドレスを入力してください";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = "有効なメールアドレスを入力してください";
+    if (!form.message.trim()) e.message = "メッセージを入力してください";
     return e;
   };
 
@@ -93,7 +93,7 @@ export default function Contact() {
             transition={{ duration: 0.4 }}
             className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
           >
-            Get in touch
+            お問い合わせ
           </motion.p>
 
           <motion.h2
@@ -102,7 +102,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="text-4xl sm:text-5xl font-extrabold mb-4"
           >
-            Contact Me
+            お問い合わせ
           </motion.h2>
 
           <motion.div
@@ -124,10 +124,9 @@ export default function Contact() {
             className="flex flex-col gap-8"
           >
             <div>
-              <h3 className="text-xl font-bold mb-2">Let's work together</h3>
+              <h3 className="text-xl font-bold mb-2">一緒に働きましょう</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                I'm currently open to new opportunities — whether it's a full-time role,
-                freelance project, or just a chat. Feel free to reach out!
+                現在、新しい機会を積極的に探しています。正社員、フリーランス、または気軽なご相談など、お気軽にご連絡ください！
               </p>
             </div>
 
@@ -159,7 +158,7 @@ export default function Contact() {
             {/* Socials */}
             <div>
               <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">
-                Find me on
+                SNSはこちら
               </p>
               <div className="flex gap-4">
                 <a
@@ -221,7 +220,7 @@ export default function Contact() {
                     peer-placeholder-shown:top-2 peer-placeholder-shown:text-base
                     peer-focus:-top-3 peer-focus:text-sm peer-focus:text-yellow-500
                     peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm">
-                    Your Name
+                    お名前
                   </label>
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
@@ -245,7 +244,7 @@ export default function Contact() {
                     peer-placeholder-shown:top-2 peer-placeholder-shown:text-base
                     peer-focus:-top-3 peer-focus:text-sm peer-focus:text-yellow-500
                     peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm">
-                    Your Email
+                    メールアドレス
                   </label>
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
@@ -269,7 +268,7 @@ export default function Contact() {
                     peer-placeholder-shown:top-2 peer-placeholder-shown:text-base
                     peer-focus:-top-3 peer-focus:text-sm peer-focus:text-yellow-500
                     peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm">
-                    Your Message
+                    メッセージ
                   </label>
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
@@ -284,7 +283,7 @@ export default function Contact() {
                       exit={{ opacity: 0 }}
                       className="text-green-500 text-sm font-medium text-center"
                     >
-                      ✅ Message sent successfully!
+                      ✅ メッセージが正常に送信されました！
                     </motion.p>
                   )}
                   {status === "error" && (
@@ -295,7 +294,7 @@ export default function Contact() {
                       exit={{ opacity: 0 }}
                       className="text-red-500 text-sm font-medium text-center"
                     >
-                      ❌ Something went wrong. Please try again.
+                      ❌ エラーが発生しました。もう一度お試しください。
                     </motion.p>
                   )}
                 </AnimatePresence>
@@ -319,7 +318,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <FiSend size={15} />
-                      Send Message
+                      送信する
                     </>
                   )}
                 </motion.button>

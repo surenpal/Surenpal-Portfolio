@@ -6,9 +6,9 @@ import { motion } from "motion/react";
 import profileImg from "../assets/profile.JPG";
 
 const stats = [
-  { value: "5+", label: "Years Learning" },
-  { value: "7+", label: "Projects Built" },
-  { value: "3", label: "Languages" },
+  { value: "5+", label: "年の学習" },
+  { value: "7+", label: "制作プロジェクト" },
+  { value: "3", label: "言語" },
 ];
 
 export default function About() {
@@ -44,7 +44,7 @@ export default function About() {
               transition={{ duration: 0.4 }}
               className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
             >
-              Get to know me
+              私について
             </motion.p>
 
             <motion.h2
@@ -54,7 +54,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6"
             >
-              About Me
+              自己紹介
             </motion.h2>
 
             <motion.div
@@ -154,7 +154,7 @@ export default function About() {
               className="text-left"
             >
               <AnimatedText
-                text="I am a Junior Frontend developer passionate about building modern, responsive web applications that deliver seamless user experiences. I enjoy breaking down complex problems into simple, elegant solutions, and I focus on creating clean, scalable code that drives real value. With a strong commitment to continuous learning and improvement, I strive to turn ideas into intuitive and high-quality digital products."
+                text="モダンでレスポンシブなWebアプリケーションの構築に情熱を持つジュニアフロントエンド開発者です。複雑な問題をシンプルでエレガントな解決策に落とし込むことが好きで、実用的でクリーンなコードの作成に注力しています。継続的な学習と自己改善に強くコミットし、アイデアを直感的で高品質なデジタルプロダクトへと昇華させることを目指しています。"
                 className="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-300"
               />
             </motion.div>

@@ -80,7 +80,7 @@ export default function ProjectCard({ title, description, url, github, imgSrc, t
               hover:bg-yellow-400 transition-colors"
           >
             <FiExternalLink size={14} />
-            Live Demo
+            プロジェクトを見る
           </a>
 
           {github && (

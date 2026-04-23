@@ -10,6 +10,12 @@ export default function Navbar({ theme, toggleTheme }) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const navItems = ["about", "skills", "projects", "contact"];
+  const navLabels = {
+    about: "プロファイル",
+    skills: "スキル",
+    projects: "プロジェクト",
+    contact: "お問い合わせ",
+  };
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -100,10 +106,10 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               key={item}
               onClick={() => handleScrollTo(item)}
-              className={`relative capitalize hover:text-yellow-500 transition-colors
+              className={`relative hover:text-yellow-500 transition-colors
               ${active === item ? "text-yellow-500" : ""}`}
             >
-              {item}
+              {navLabels[item]}
               {/* 4. Sliding active indicator with layoutId */}
               {active === item && (
                 <motion.span
@@ -212,11 +218,11 @@ export default function Navbar({ theme, toggleTheme }) {
                 <button
                   key={item}
                   onClick={() => handleScrollTo(item)}
-                  className={`capitalize font-semibold text-lg transition-colors
+                  className={`font-semibold text-lg transition-colors
                   ${active === item ? "text-yellow-500" : "text-gray-700 dark:text-gray-300"}
                   hover:text-yellow-500`}
                 >
-                  {item}
+                  {navLabels[item]}
                 </button>
               ))}
               <a

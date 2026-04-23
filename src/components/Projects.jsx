@@ -12,7 +12,7 @@ const projects = [
   {
     imgSrc: JapaneseLearningAppImg,
     title: "Nihongo Master",
-    description: "A Japanese learning app built with TypeScript and Next.js. Features flashcards, quizzes, and a spaced repetition system to help users learn and retain Japanese vocabulary effectively.",
+    description: "TypeScriptとNext.jsで構築された日本語学習アプリです。フラッシュカード、クイズ、間隔反復システムを搭載し、日本語の語彙を効率的に習得できます。",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     url: "https://japanese-learning-app-uabb.vercel.app/",
     github: "https://github.com/surenpal",
@@ -21,7 +21,7 @@ const projects = [
   {
     imgSrc: ecommerceImg,
     title: "E-Commerce App",
-    description: "An e-commerce app built with React, Tailwind, and useContext. Features product listing, shopping cart, and a simple checkout process.",
+    description: "React、Tailwind、useContextで構築したECアプリです。商品一覧、ショッピングカート、チェックアウト機能を実装しています。",
     tags: ["React", "Tailwind", "Context API"],
     url: "https://mela-shopping-e-commerce.vercel.app",
     github: "https://github.com/surenpal",
@@ -29,7 +29,7 @@ const projects = [
   {
     imgSrc: weatherImg,
     title: "SkyCast",
-    description: "A clean weather app built with React and Tailwind. Fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly interface.",
+    description: "ReactとTailwindで構築したシンプルな天気アプリです。OpenWeatherMap APIからリアルタイムの気象データを取得し、わかりやすいUIで表示します。",
     tags: ["React", "Tailwind", "REST API"],
     url: "https://weatherappsuren.vercel.app/",
     github: "https://github.com/surenpal",
@@ -37,7 +37,7 @@ const projects = [
   {
     imgSrc: dateTimeImg,
     title: "Calendar",
-    description: "A clean date-time app built with React and Tailwind. Displays the current date and time, and allows users to set alarms and timers.",
+    description: "ReactとTailwindで構築した日時アプリです。現在の日時を表示し、アラームやタイマーを設定できます。",
     tags: ["React", "Tailwind"],
     url: "https://datetimeappsuren.vercel.app",
     github: "https://github.com/surenpal",
@@ -45,7 +45,7 @@ const projects = [
   {
     imgSrc: myCalculatorImg,
     title: "Calculator",
-    description: "A full-featured calculator built with React and Tailwind. Supports basic arithmetic operations, percentage calculations, and has a responsive design.",
+    description: "ReactとTailwindで構築した多機能電卓アプリです。基本的な四則演算、パーセント計算に対応し、レスポンシブデザインを採用しています。",
     tags: ["React", "Tailwind"],
     url: "https://mycalculatersuren.vercel.app/",
     github: "https://github.com/surenpal",
@@ -53,7 +53,7 @@ const projects = [
   {
     imgSrc: loginImg,
     title: "Login Form",
-    description: "A login form built with React and Tailwind. Includes form validation, error handling, and a responsive design for both desktop and mobile.",
+    description: "ReactとTailwindで構築したログインフォームです。フォームバリデーション、エラーハンドリング、デスクトップ・モバイル対応のレスポンシブデザインを実装しています。",
     tags: ["React", "Tailwind", "Form Validation"],
     url: "https://loginformreacttailwind.vercel.app/",
     github: "https://github.com/surenpal",
@@ -77,7 +77,7 @@ export default function Projects() {
             transition={{ duration: 0.4 }}
             className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2"
           >
-            What I've built
+            制作物
           </motion.p>
 
           <motion.h2
@@ -86,7 +86,7 @@ export default function Projects() {
             transition={{ duration: 0.6 }}
             className="text-4xl sm:text-5xl font-extrabold mb-4"
           >
-            Projects
+            プロジェクト
           </motion.h2>
 
           <motion.div
