@@ -29,7 +29,7 @@ const items = [
   {
     id: 4,
     year: "2023",
-    title: "Junior　フロントエンド　開発者",
+    title: "Juniorフロントエンド開発者",
     text: "React、Tailwind CSS、JavaScriptを使用してモダンなWebアプリケーションの構築を開始しました。",
     icon: <FaCode />,
     tags: ["React", "Tailwind CSS", "JavaScript"],
